@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vishal Singh</title>
+<meta name="description" content="Vishal Singh, backend and AI engineer in Hyderabad. Backend systems and AI agents that survive production: Go, PostgreSQL, Redis, AWS, agents, RAG, evals.">
+<meta name="theme-color" content="#0c0d11">
+<meta property="og:title" content="Vishal Singh">
+<meta property="og:description" content="Backend systems and AI agents that survive production.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230c0d11'/%3E%3Cpath d='M18 3 L7 18.5 H15 L13 29 L25 12.5 H17 Z' fill='%23f2b134'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Vishal Singh","jobTitle":"Technical Lead","worksFor":{"@type":"Organization","name":"The Factual Holding Company"},"address":{"@type":"PostalAddress","addressLocality":"Hyderabad","addressCountry":"IN"},"email":"mailto:singhvishal1821@gmail.com","sameAs":["https://www.linkedin.com/in/vishalsingh21/","https://github.com/Vishaal21","https://x.com/singhvishaal21"]}
+</script>
+<style>
+  :root {
+    --bg: #0c0d11;
+    --panel: #121318;
+    --text: #ece9e2;
+    --body: #b8b5ad;
+    --dim: #7d7e88;
+    --rule: rgba(236, 233, 226, 0.12);
+    --stroke: rgba(236, 233, 226, 0.35);
+    --accent: #f2b134;
+    --accent-glow: rgba(242, 177, 52, 0.85);
+    --live: #3ddc84;
+    --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+    --serif: "Newsreader", Georgia, "Times New Roman", serif;
+    --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--serif); font-size: 18px; line-height: 1.5; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; transition: color 0.2s; }
+  a:hover { color: var(--accent); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .skip { position: absolute; left: -999px; top: 8px; background: var(--accent); color: #1a1204; padding: 8px 12px; font-family: var(--mono); font-size: 13px; z-index: 20; }
+  .skip:focus { left: 8px; }
+  .grain { position: fixed; inset: 0; pointer-events: none; opacity: 0.045; z-index: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+  .mono { font-family: var(--mono); }
+  .key { font-family: var(--mono); font-size: 12px; line-height: 1.6; color: var(--dim); }
+  .body { font-size: 18px; line-height: 1.5; color: var(--body); margin: 0; }
+  .ac { color: var(--accent); }
+
+  /* cursor ring, pointer devices only */
+  .cur { position: fixed; top: 0; left: 0; width: 22px; height: 22px; border: 1px solid var(--accent); border-radius: 50%; pointer-events: none; z-index: 50; transform: translate(-50%, -50%); opacity: 0; transition: width 0.25s, height 0.25s, opacity 0.3s, background 0.25s; }
+  .cur.on { opacity: 0.9; }
+  .cur.big { width: 44px; height: 44px; background: rgba(242, 177, 52, 0.08); }
+  @media (pointer: fine) { body.has-cur, body.has-cur a { cursor: none; } }
+
+  /* nav */
+  .nav { position: sticky; top: 0; z-index: 10; transition: background 0.3s, border-color 0.3s; border-bottom: 1px solid transparent; }
+  .nav.scrolled { background: rgba(12, 13, 17, 0.82); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom-color: var(--rule); }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .nav a { font-family: var(--mono); font-size: 13px; position: relative; }
+  .nav .links { display: flex; gap: 28px; }
+  .nav .links a { color: var(--body); padding: 4px 0; }
+  .nav .links a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); }
+  .nav .links a:hover::after, .nav .links a[aria-current="true"]::after { transform: scaleX(1); }
+  .nav .links a[aria-current="true"] { color: var(--text); }
+  .nav .links a.res { color: var(--accent); }
+
+  /* hero */
+  .hero { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: 64px; padding-top: 56px; padding-bottom: 64px; align-items: end; }
+  .hero-left { display: flex; flex-direction: column; gap: 28px; container-type: inline-size; }
+  h1 { margin: 0; font-family: var(--display); font-size: clamp(36px, 5.2vw, 84px); font-size: clamp(36px, 12cqw, 84px); font-weight: 800; line-height: 0.95; letter-spacing: -0.035em; white-space: nowrap; }
+  .h1line { display: block; overflow: hidden; padding-bottom: 0.1em; margin-bottom: -0.1em; }
+  .h1line span { display: block; }
+  .hero-links { display: flex; flex-wrap: wrap; gap: 10px 24px; font-family: var(--mono); font-size: 13px; }
+  .hero-links a { color: var(--body); }
+  .hero-links a.ac { color: var(--accent); }
+  .hero-right { display: flex; flex-direction: column; justify-content: space-between; gap: 40px; align-self: stretch; }
+  .now { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 10px 16px; font-family: var(--mono); font-size: 12.5px; line-height: 1.6; color: var(--dim); }
+  .now b { font-weight: 400; color: var(--text); }
+  .trace-wrap { display: flex; flex-direction: column; gap: 10px; }
+  .code { margin: 0; font-family: var(--mono); font-size: 12px; line-height: 1.7; color: var(--body); white-space: pre; background: var(--panel); padding: 16px 18px; overflow-x: auto; }
+  .trace { font-size: 11.5px; line-height: 1.75; padding: 18px 20px; min-height: 246px; position: relative; }
+  .trace::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.6; animation: scan 4s linear infinite; }
+  .trace-head { color: var(--dim); display: flex; justify-content: space-between; }
+  .pulse { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--live); margin-right: 8px; vertical-align: 1px; box-shadow: 0 0 6px var(--live); animation: blink 1.4s ease-in-out infinite; }
+  .ln { display: block; animation: slideIn 0.35s ease-out both; }
+
+  /* ticker */
+  .ticker { position: relative; overflow: hidden; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 14px 0; }
+  .ticker::before, .ticker::after { content: ""; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 1; pointer-events: none; }
+  .ticker::before { left: 0; background: linear-gradient(90deg, var(--bg), transparent); }
+  .ticker::after { right: 0; background: linear-gradient(270deg, var(--bg), transparent); }
+  .track { display: flex; width: max-content; will-change: transform; animation: tick 48s linear infinite; font-family: var(--mono); font-size: 12.5px; color: var(--body); }
+  .track span { padding: 0 22px; white-space: nowrap; }
+  .ticker:hover .track { animation-play-state: paused; }
+
+  /* sections and rows */
+  section { scroll-margin-top: 80px; }
+  .sec { padding: 96px 0 24px; display: flex; align-items: baseline; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .sec h2 { margin: 0; font-family: var(--display); font-size: 44px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; overflow: hidden; padding-bottom: 0.05em; }
+  .sec p { margin: 0; font-size: 18px; color: var(--dim); font-style: italic; }
+  .row { display: grid; grid-template-columns: 176px minmax(0, 1fr) 320px; gap: 40px; padding: 36px 24px; margin: 0 -24px; border-top: 1px solid var(--rule); align-items: start; transition: background 0.25s; position: relative; }
+  .row::before { content: ""; position: absolute; left: 24px; top: -1px; height: 1px; width: 0; background: var(--accent); transition: width 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
+  .row:hover::before { width: 120px; }
+  .row:hover { background: linear-gradient(90deg, rgba(236, 233, 226, 0.035), transparent 70%); }
+  .row:hover .key { color: var(--body); }
+  .row h3 { margin: 0 0 10px; font-family: var(--display); font-size: 27px; font-weight: 700; line-height: 1.15; letter-spacing: -0.015em; text-wrap: balance; }
+  .row.slim { padding-top: 18px; padding-bottom: 18px; }
+  .inv { margin: 14px 0 0; font-family: var(--mono); font-size: 12.5px; line-height: 1.6; color: var(--body); }
+  .inv b { font-weight: 500; margin-right: 10px; color: var(--accent); }
+  .aside-num { font-family: var(--display); font-size: 40px; font-weight: 800; line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .aside-cap { font-family: var(--mono); font-size: 11.5px; line-height: 1.5; color: var(--dim); margin-top: 6px; }
+  .nums { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .nums.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dl { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 10px 24px; margin: 22px 0 0; font-size: 16.5px; line-height: 1.5; color: var(--body); }
+  .dl dt { margin: 0; font-family: var(--mono); font-size: 12px; line-height: 2.05; color: var(--dim); }
+  .dl dd { margin: 0; }
+  .lnk { font-family: var(--mono); font-size: 13px; display: inline-flex; align-items: center; gap: 6px; }
+  .lnk svg { transition: transform 0.2s; }
+  .lnk:hover svg { transform: translate(2px, -2px); }
+  .links-col { display: flex; flex-direction: column; gap: 10px; }
+  .c-mail { display: grid; grid-template-columns: 176px minmax(0, 1fr) auto; gap: 40px; align-items: center; padding: 32px 24px; margin: 0 -24px; border-top: 1px solid var(--rule); }
+  .c-addr { font-family: var(--display); font-size: clamp(22px, 3.4vw, 42px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; color: var(--text); transition: color 0.2s; word-break: break-all; }
+  .c-mail:hover .c-addr { color: var(--accent); }
+  .c-arrow { width: 48px; height: 48px; border: 1px solid var(--rule); border-radius: 50%; display: grid; place-items: center; color: var(--accent); transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s, background 0.3s; }
+  .c-mail:hover .c-arrow { transform: translate(3px, -3px); border-color: var(--accent); background: rgba(242, 177, 52, 0.08); }
+  .c-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--rule); }
+  .c-item { display: flex; flex-direction: column; gap: 8px; padding: 22px 24px 26px 0; }
+  .c-item + .c-item { padding-left: 24px; border-left: 1px solid var(--rule); }
+  .c-val { font-family: var(--mono); font-size: 14px; display: inline-flex; align-items: center; gap: 6px; color: var(--text); }
+  .c-val svg { transition: transform 0.2s; }
+  .c-item:hover .c-val svg { transform: translate(2px, -2px); }
+  footer { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding: 48px 0 40px; border-top: 1px solid var(--rule); }
+
+  /* diagrams: node graphs drawn by the script from the DIAGRAMS data */
+  .dg { display: block; width: 100%; max-width: 320px; height: auto; overflow: visible; }
+  .dg .node rect { fill: rgba(18, 19, 24, 0.9); stroke: var(--stroke); }
+  .dg .node text { font-family: var(--mono); font-size: 10px; fill: var(--body); }
+  .dg .edge { fill: none; stroke: rgba(236, 233, 226, 0.22); stroke-width: 1.2; stroke-linecap: round; }
+  .dg .port { fill: var(--accent); }
+  .dg .halo { fill: var(--accent); opacity: 0.22; }
+  .dg .pkt { opacity: 0; }
+  .dg .pkt .core { fill: #fff8e6; }
+  .dg .pkt .halo { opacity: 0.35; }
+  .dg .note { font-family: var(--mono); font-size: 10px; fill: var(--dim); }
+
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.15; } }
+  @keyframes slideIn { from { opacity: 0; transform: translateX(-6px); } to { opacity: 1; transform: none; } }
+  @keyframes tick { to { transform: translateX(-50%); } }
+  @keyframes scan { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
+
+  @media (max-width: 1000px) {
+    .wrap { padding: 0 24px; }
+    .hero { grid-template-columns: 1fr; gap: 40px; padding-top: 32px; }
+    .hero-right { gap: 24px; }
+    .row { grid-template-columns: 1fr; gap: 16px; padding: 28px 16px; margin: 0 -16px; }
+    .row::before { left: 16px; }
+    .row h3 { font-size: 23px; }
+    .c-mail { grid-template-columns: 1fr auto; gap: 8px 16px; padding: 24px 16px; margin: 0 -16px; }
+    .c-mail .key { grid-column: 1 / -1; }
+    .c-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .c-item:nth-child(odd) { padding-left: 0; border-left: 0; }
+    .c-item:nth-child(n+3) { border-top: 1px solid var(--rule); }
+    .sec { padding-top: 64px; }
+    .sec h2 { font-size: 36px; }
+    .nav .links { gap: 18px; }
+    .nav .links a.hide-sm { display: none; }
+  }
+  @media (max-width: 600px) {
+    .dl { grid-template-columns: 1fr; gap: 2px 0; }
+    .dl dd { margin-bottom: 10px; }
+    .nums { gap: 8px; }
+    .aside-num { font-size: 30px; }
+    .now { grid-template-columns: 84px minmax(0, 1fr); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .pulse, .ln, .track, .trace::after { animation: none !important; }
+    .dg .pkt { display: none; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#work">Skip to work</a>
+<div class="grain" aria-hidden="true"></div>
+<div class="cur" id="cur" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top">vishal<span class="ac">.singh</span></a>
+    <nav class="links" aria-label="Sections">
+      <a href="#work">work</a>
+      <a href="#ai">ai</a>
+      <a href="#projects" class="hide-sm">projects</a>
+      <a href="#contact">contact</a>
+      <a class="res" href="https://drive.google.com/file/d/1sxDF7uOFDFUkzWAADTKVF5I_-oFGxMGX/view" target="_blank" rel="noopener">resume</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="wrap hero" aria-label="Introduction">
+    <div class="hero-left">
+      <p class="key hero-key" style="margin: 0;">Vishal Singh / backend and AI engineer / Hyderabad, India</p>
+      <h1>
+        <span class="h1line"><span>Backend systems</span></span>
+        <span class="h1line"><span>and AI agents that</span></span>
+        <span class="h1line"><span class="ac">survive production.</span></span>
+      </h1>
+      <p class="body hero-lede" style="max-width: 560px; font-size: 20px;">Two-plus years of event-driven, concurrent services on PostgreSQL, Redis and AWS across fintech, healthcare, AI and IoT. I own the schema, the queue, the model calls, the money path and the deploy.</p>
+      <div class="hero-links">
+        <a class="ac" href="mailto:singhvishal1821@gmail.com">singhvishal1821@gmail.com</a>
+        <a href="https://www.linkedin.com/in/vishalsingh21/" target="_blank" rel="noopener">linkedin</a>
+        <a href="https://github.com/Vishaal21" target="_blank" rel="noopener">github</a>
+        <a href="https://x.com/singhvishaal21" target="_blank" rel="noopener">x</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="now">
+        <span class="ac">now</span><b>Technical Lead, The Factual Holding Company<br>Jan 2026 to now, remote</b>
+        <span>before</span><b>Software Engineer, OneIoT, 2025<br>Back End Developer, Etrdz, 2023 to 2025</b>
+        <span>experience</span><b>2.5+ years, Go in production</b>
+        <span>based</span><b>Hyderabad, India, <span id="clock">IST</span></b>
+      </div>
+      <div class="trace-wrap">
+        <pre class="code trace" aria-label="Illustrative job queue trace"><span class="trace-head"><span>queue ads.generate</span><span><span class="pulse"></span>live</span></span>
+<span id="trace-lines"></span></pre>
+        <p class="key" style="margin: 0;">How the ad platform's queue treats a dead worker. Illustrative trace.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="track" id="track"></div>
+  </div>
+
+  <div class="wrap">
+
+    <section id="work">
+      <div class="sec">
+        <h2>Work</h2>
+        <p>Three companies, one language, everything in production.</p>
+      </div>
+
+      <article class="row">
+        <div class="key">Factual<br><span class="ac">healthcare</span></div>
+        <div>
+          <h3>Telehealth platform with a self-built EMR</h3>
+          <p class="body">Three role-based portals, patient, physician and admin, on one Go backend. Replaced a third-party EMR vendor with an EMR built on PostgreSQL on RDS. HIPAA-compliant, TLS in transit, per-role session auth.</p>
+          <p class="inv"><b>invariant</b>Each role sees only its own portal. Patient data moves only over TLS.</p>
+        </div>
+        <svg class="dg" data-dg="telehealth" viewBox="0 0 320 130" aria-hidden="true"></svg>
+      </article>
+
+      <article class="row">
+        <div class="key">Factual<br><span class="ac">ai</span></div>
+        <div>
+          <h3>AI ad-generation platform for 10,000 daily users</h3>
+          <p class="body">500 to 1,000 concurrent jobs, 44 models across 4 AI providers, orchestrated on a Postgres-backed durable job queue with 150 workers. Heartbeat and reaper recovery bring dead workers' jobs back without billing them twice.</p>
+          <p class="inv"><b>invariant</b>A job is billed exactly once, whatever dies mid-run.</p>
+        </div>
+        <svg class="dg" data-dg="ads" viewBox="0 0 320 130" aria-hidden="true"></svg>
+      </article>
+
+      <article class="row">
+        <div class="key">Factual<br><span class="ac">fintech</span></div>
+        <div>
+          <h3>Prop-firm trading platform with race-free money movement</h3>
+          <p class="body">Atomic guarded-SQL deduction, idempotent webhooks and saga-style rollback across dual providers. 14 live market feeds stream into Redis behind a fail-closed staleness gate, so a stale price can never be traded on.</p>
+          <p class="inv"><b>invariant</b>Money never moves twice. Stale prices never trade.</p>
+        </div>
+        <div>
+          <pre class="code">UPDATE wallets
+SET    balance = balance - $1
+WHERE  id = $2
+AND    balance &gt;= $1;
+<span style="color: var(--dim);">-- 0 rows = insufficient funds
+-- no read-then-write race</span></pre>
+          <p class="aside-cap">The guard that makes a deduction atomic.</p>
+        </div>
+      </article>
+
+      <article class="row">
+        <div class="key">Factual<br><span class="ac">martech</span></div>
+        <div>
+          <h3>Multi-brand creator monetization platform</h3>
+          <p class="body">A first-touch attribution engine with a fixed priority of paid, then affiliate, then organic. Automated Stripe Connect payouts that handle chargeback reversals. OAuth tokens encrypted at rest with AES-256-GCM.</p>
+          <p class="inv"><b>invariant</b>Every payout traces to one first touch. Tokens never rest in plain text.</p>
+        </div>
+        <svg class="dg" data-dg="creator" viewBox="0 0 320 130" aria-hidden="true"></svg>
+      </article>
+
+      <article class="row">
+        <div class="key">OneIoT<br><span class="ac">iot</span></div>
+        <div>
+          <h3>A farm that runs itself, in Go</h3>
+          <p class="body">Control algorithms that operated an entire farm site with no operator: irrigation, ventilation and nutrient mixing, each a concurrent control loop on goroutines holding its target condition. Underneath, a real-time cloud-to-device layer over MQTT fusing operator setpoints, live firmware sensor data and outside conditions into per-machine decisions.</p>
+        </div>
+        <svg class="dg" data-dg="farm" viewBox="0 0 320 130" aria-hidden="true"></svg>
+      </article>
+
+      <article class="row">
+        <div class="key">Etrdz<br><span class="ac">fintech</span></div>
+        <div>
+          <h3>Multi-tenant trading platform, from scratch</h3>
+          <p class="body">Go with Gin and Echo on PostgreSQL, production MVC, scaled to 5,000 daily active users. A distributed task queue on RabbitMQ processed 10,000 to 20,000 asynchronous jobs a day at 99.9 percent uptime. Redis caching and PgBouncer pooling cut query latency by 40 percent under load.</p>
+        </div>
+        <div class="nums">
+          <div><div class="aside-num" data-count="5">5<span class="ac">k</span></div><div class="aside-cap">daily active users</div></div>
+          <div><div class="aside-num" data-count="20">20<span class="ac">k</span></div><div class="aside-cap">jobs a day, 99.9% up</div></div>
+          <div><div class="aside-num" data-count="40">40<span class="ac">%</span></div><div class="aside-cap">less query latency</div></div>
+        </div>
+      </article>
+    </section>
+
+    <section id="ai">
+      <div class="sec">
+        <h2>AI</h2>
+        <p>Models in production, and an agent being built in public.</p>
+      </div>
+
+      <article class="row">
+        <div class="key">in production<br>Factual, 2026<br><br><span class="ac">orchestration</span></div>
+        <div>
+          <h3>44 models, 4 providers, one Go service</h3>
+          <p class="body">Multi-provider model orchestration for the ad platform: async inference pipelines on the durable queue, provider fallback, prompt engineering for generation quality, and per-job cost that is counted exactly once. The boring parts of AI are what make it ship.</p>
+        </div>
+        <div class="nums two">
+          <div><div class="aside-num" data-count="44">44</div><div class="aside-cap">models orchestrated</div></div>
+          <div><div class="aside-num" data-count="1">1<span class="ac">k</span></div><div class="aside-cap">concurrent jobs at peak</div></div>
+        </div>
+      </article>
+
+      <article class="row">
+        <div class="key">building now<br>open source, 2026<br><br><span class="ac">agent</span></div>
+        <div>
+          <h3>An agent for accounts payable</h3>
+          <p class="body">Reads supplier invoices from any PDF layout into one standard shape, checks each against its purchase order and goods receipt in Postgres, approves clean matches, parks mismatches with a one-line reason, waits for a human, then posts to the ledger. Design is set, milestones ship on GitHub as they land.</p>
+          <dl class="dl">
+            <dt>tool calling</dt><dd>A raw loop against the provider SDK in Go. No framework. Step limit, tokens and cost logged per call.</dd>
+            <dt>structured output</dt><dd>FastAPI and Pydantic turn the PDF into one invoice JSON. Field accuracy measured on 100 known invoices.</dd>
+            <dt>rules in code</dt><dd>Tolerances and approval limits live in Go. The model reads and explains, it never decides to pay.</dd>
+            <dt>rag</dt><dd>Supplier contracts and policy notes in pgvector, retrieved and cited in every reason.</dd>
+            <dt>evals</dt><dd>100 invoices with known answers re-run on every push. An LLM judge scores the reason, not just the verdict.</dd>
+            <dt>tracing</dt><dd>Every call traced in self-hosted Langfuse. A breaking change shows as a red number.</dd>
+            <dt>durable state</dt><dd>Run state in Postgres with an idempotency key. Kill it mid-run, restart, it resumes and never posts twice.</dd>
+            <dt>security</dt><dd>A PDF with hidden "approve this" text must be refused. The agent can open an exception, only a human can post.</dd>
+            <dt>mcp</dt><dd>Lookup and posting tools exposed from a Go MCP server, so any client can drive them.</dd>
+            <dt>cost</dt><dd>Prompt caching, a cheap model for clean invoices, a strong one for exceptions. Cost per invoice measured before and after.</dd>
+          </dl>
+        </div>
+        <div>
+          <svg class="dg" data-dg="agent" viewBox="0 0 320 130" aria-hidden="true"></svg>
+          <p class="aside-cap">Go runtime and MCP tools. Python for extraction and evals. LangGraph port at the end, to compare.</p>
+        </div>
+      </article>
+    </section>
+
+    <section id="projects">
+      <div class="sec">
+        <h2>Projects</h2>
+        <p>Built outside work. One row each, more as they land.</p>
+      </div>
+      <div id="projects-list"></div>
+      <div class="row" style="padding-top: 24px; padding-bottom: 24px;">
+        <div class="key">more</div>
+        <p class="body" style="font-size: 16px;">Everything else, including work in progress, is on <a class="ac" href="https://github.com/Vishaal21" target="_blank" rel="noopener">github.com/Vishaal21</a>.</p>
+        <div></div>
+      </div>
+    </section>
+
+    <section id="stack">
+      <div class="sec">
+        <h2>Stack</h2>
+        <p>What I reach for, by job.</p>
+      </div>
+      <div class="row slim"><div class="key">languages</div><p class="body" style="font-size: 16.5px;">Go, Python, TypeScript, JavaScript, SQL, Java, C and C++</p><div></div></div>
+      <div class="row slim"><div class="key">backend</div><p class="body" style="font-size: 16.5px;">Gin, Echo, FastAPI, NestJS, Express, Celery, REST, microservices</p><div></div></div>
+      <div class="row slim"><div class="key">data</div><p class="body" style="font-size: 16.5px;">PostgreSQL, pgvector, MongoDB, Redis with RedisJSON and RediSearch</p><div></div></div>
+      <div class="row slim"><div class="key">messaging</div><p class="body" style="font-size: 16.5px;">RabbitMQ, MQTT, Kafka</p><div></div></div>
+      <div class="row slim"><div class="key">ai</div><p class="body" style="font-size: 16.5px;">Claude and OpenAI APIs, tool calling, structured outputs, multi-provider orchestration, async inference pipelines, RAG with pgvector, evals and LLM judges, Langfuse, MCP, LangGraph</p><div></div></div>
+      <div class="row slim"><div class="key">cloud</div><p class="body" style="font-size: 16.5px;">AWS EC2, RDS, S3, ECR, Docker, Kubernetes, Nginx, PgBouncer, GitHub Actions</p><div></div></div>
+      <div class="row slim"><div class="key">integrations</div><p class="body" style="font-size: 16.5px;">Stripe Connect and webhooks, Meta OAuth and Graph API, Twilio</p><div></div></div>
+    </section>
+
+    <section id="contact">
+      <div class="sec">
+        <h2>Contact</h2>
+        <p>Backend, AI platform, or forward-deployed work.</p>
+      </div>
+      <a class="c-mail" href="mailto:singhvishal1821@gmail.com">
+        <span class="key">email</span>
+        <span class="c-addr">singhvishal1821@gmail.com</span>
+        <span class="c-arrow" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9L9 3M4 3h5v5"></path></svg></span>
+      </a>
+      <div class="c-grid">
+        <a class="c-item" href="https://www.linkedin.com/in/vishalsingh21/" target="_blank" rel="noopener"><span class="key">linkedin</span><span class="c-val">vishalsingh21 <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9L9 3M4 3h5v5"></path></svg></span></a>
+        <a class="c-item" href="https://github.com/Vishaal21" target="_blank" rel="noopener"><span class="key">github</span><span class="c-val">Vishaal21 <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9L9 3M4 3h5v5"></path></svg></span></a>
+        <a class="c-item" href="https://x.com/singhvishaal21" target="_blank" rel="noopener"><span class="key">x</span><span class="c-val">singhvishaal21 <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9L9 3M4 3h5v5"></path></svg></span></a>
+        <a class="c-item" href="https://drive.google.com/file/d/1sxDF7uOFDFUkzWAADTKVF5I_-oFGxMGX/view" target="_blank" rel="noopener"><span class="key">resume</span><span class="c-val">PDF on Drive <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9L9 3M4 3h5v5"></path></svg></span></a>
+      </div>
+    </section>
+
+    <footer class="key">
+      <span>Vishal Singh / Hyderabad, India / B.Tech Computer Science, Lovely Professional University, 2019 to 2023</span>
+    </footer>
+  </div>
+</main>
+
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/MotionPathPlugin.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/DrawSVGPlugin.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+<script type="module">
+  /* ============================================================
+     PROJECTS. To add one, copy an object and paste it at the top
+     of this list (newest first). Fields:
+       year   : shown in the key column
+       tag    : one or two words, shown in amber
+       title  : the row heading
+       body   : two to four sentences, what it is and what is inside
+       links  : [{ label, href, accent }] ; accent: true makes it amber
+     ============================================================ */
+  const PROJECTS = [
+    {
+      year: "2026",
+      tag: "neural nets",
+      title: "Neural Network Visualized",
+      body: "A tiny language model you can watch think. Type a sentence start and step through one next-word guess: context, tokens, two hidden layers, scores, softmax, pick. Click any circle to see its arithmetic. 32 words, 350 parameters, trained in the browser in under a second. No library, no build step.",
+      links: [
+        { label: "Open the live demo", href: "https://vishaal21.github.io/Neural-Network-Visualized/", accent: true },
+        { label: "Read the code", href: "https://github.com/Vishaal21/Neural-Network-Visualized" }
+      ]
+    }
+  ];
+
+  /* ============================================================
+     DIAGRAMS. Each is a small node graph, drawn into the matching
+     <svg data-dg="name"> (viewBox 320 x 130). A node is
+     { id, label, x, y, w }, 24px tall. An edge is [fromId, toId]
+     for a curved connector, or { d: "svg path" } for a custom one.
+     Notes are small captions.
+     ============================================================ */
+  const DIAGRAMS = {
+    telehealth: {
+      nodes: [
+        { id: "p", label: "patient", x: 0, y: 6, w: 72 },
+        { id: "d", label: "physician", x: 0, y: 50, w: 72 },
+        { id: "a", label: "admin", x: 0, y: 94, w: 72 },
+        { id: "api", label: "one Go API", x: 126, y: 50, w: 80 },
+        { id: "emr", label: "EMR / RDS", x: 236, y: 50, w: 84 }
+      ],
+      edges: [["p", "api"], ["d", "api"], ["a", "api"], ["api", "emr"]],
+      notes: [{ x: 236, y: 98, text: "TLS, per-role auth" }]
+    },
+    ads: {
+      nodes: [
+        { id: "api", label: "API", x: 0, y: 50, w: 40 },
+        { id: "q", label: "pg queue", x: 52, y: 50, w: 66 },
+        { id: "w", label: "150 workers", x: 132, y: 50, w: 84 },
+        { id: "pv", label: "4 providers", x: 232, y: 50, w: 88 }
+      ],
+      edges: [["api", "q"], ["q", "w"], ["w", "pv"], { d: "M174 74 C174 106, 85 106, 85 74" }],
+      notes: [{ x: 96, y: 122, text: "heartbeat, reaper, requeue" }]
+    },
+    creator: {
+      nodes: [
+        { id: "ft", label: "first touch", x: 0, y: 50, w: 84 },
+        { id: "at", label: "attribution", x: 104, y: 50, w: 86 },
+        { id: "sp", label: "Stripe payout", x: 220, y: 50, w: 100 }
+      ],
+      edges: [["ft", "at"], ["at", "sp"]],
+      notes: [{ x: 104, y: 98, text: "paid > affiliate > organic" }, { x: 200, y: 114, text: "chargebacks reversed" }]
+    },
+    farm: {
+      nodes: [
+        { id: "s", label: "setpoints", x: 0, y: 6, w: 80 },
+        { id: "n", label: "sensors", x: 0, y: 50, w: 80 },
+        { id: "w", label: "weather", x: 0, y: 94, w: 80 },
+        { id: "go", label: "Go control", x: 128, y: 50, w: 80 },
+        { id: "mq", label: "MQTT out", x: 238, y: 50, w: 82 }
+      ],
+      edges: [["s", "go"], ["n", "go"], ["w", "go"], ["go", "mq"]],
+      notes: [{ x: 128, y: 98, text: "one loop per machine" }]
+    },
+    agent: {
+      nodes: [
+        { id: "pdf", label: "PDF", x: 0, y: 50, w: 36 },
+        { id: "ex", label: "extract", x: 46, y: 50, w: 58 },
+        { id: "m", label: "3-way match", x: 116, y: 50, w: 84 },
+        { id: "h", label: "human?", x: 212, y: 50, w: 56 },
+        { id: "po", label: "post", x: 280, y: 50, w: 40 },
+        { id: "pg", label: "pgvector", x: 116, y: 96, w: 84 }
+      ],
+      edges: [["pdf", "ex"], ["ex", "m"], ["m", "h"], ["h", "po"], { d: "M158 74 L158 96" }],
+      notes: [{ x: 212, y: 112, text: "contracts, policy" }]
+    }
+  };
+
+  const SVG_NS = "http://www.w3.org/2000/svg";
+  const el = (name, attrs, parent) => {
+    const n = document.createElementNS(SVG_NS, name);
+    for (const k in attrs) n.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(n);
+    return n;
+  };
+  const NODE_H = 24;
+
+  function drawDiagram(svg, spec) {
+    const byId = Object.fromEntries(spec.nodes.map(n => [n.id, n]));
+    const gEdges = el("g", { class: "edges" }, svg);
+    const gNodes = el("g", { class: "nodes" }, svg);
+    const gPorts = el("g", { class: "ports" }, svg);
+    const gPkts = el("g", { class: "pkts" }, svg);
+    const ports = new Set();
+    const name = svg.dataset.dg;
+    spec.edges.forEach((e, i) => {
+      let d, a, b;
+      if (Array.isArray(e)) {
+        const f = byId[e[0]], t = byId[e[1]];
+        a = [f.x + f.w, f.y + NODE_H / 2];
+        b = [t.x, t.y + NODE_H / 2];
+        const k = Math.max(14, (b[0] - a[0]) / 2);
+        d = `M${a[0]} ${a[1]} C${a[0] + k} ${a[1]}, ${b[0] - k} ${b[1]}, ${b[0]} ${b[1]}`;
+      } else {
+        d = e.d;
+      }
+      const path = el("path", { d, class: "edge", id: `${name}-e${i}` }, gEdges);
+      const len = path.getTotalLength();
+      const p0 = path.getPointAtLength(0), p1 = path.getPointAtLength(len);
+      [p0, p1].forEach(p => ports.add(`${Math.round(p.x)},${Math.round(p.y)}`));
+      const pkt = el("g", { class: "pkt", transform: `translate(${p0.x} ${p0.y})` }, gPkts);
+      el("circle", { r: 5.5, class: "halo" }, pkt);
+      el("circle", { r: 2.2, class: "core" }, pkt);
+      pkt.dataset.path = path.id;
+    });
+    spec.nodes.forEach(n => {
+      const g = el("g", { class: "node" }, gNodes);
+      el("rect", { x: n.x + 0.5, y: n.y + 0.5, width: n.w, height: NODE_H, rx: 3 }, g);
+      const t = el("text", { x: n.x + 8, y: n.y + 16 }, g);
+      t.textContent = n.label;
+    });
+    ports.forEach(key => {
+      const [x, y] = key.split(",").map(Number);
+      el("circle", { cx: x, cy: y, r: 5, class: "halo" }, gPorts);
+      el("circle", { cx: x, cy: y, r: 2.5, class: "port" }, gPorts);
+    });
+    (spec.notes || []).forEach(nt => {
+      const t = el("text", { x: nt.x, y: nt.y, class: "note" }, svg);
+      t.textContent = nt.text;
+    });
+  }
+  document.querySelectorAll(".dg[data-dg]").forEach(svg => drawDiagram(svg, DIAGRAMS[svg.dataset.dg]));
+
+  const ARROW = '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9L9 3M4 3h5v5"></path></svg>';
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  document.getElementById("projects-list").innerHTML = PROJECTS.map(p => `
+    <article class="row">
+      <div class="key">${esc(p.year)}<br><span class="ac">${esc(p.tag)}</span></div>
+      <div>
+        <h3>${esc(p.title)}</h3>
+        <p class="body">${esc(p.body)}</p>
+      </div>
+      <div class="links-col">
+        ${p.links.map(l => `<a class="lnk${l.accent ? " ac" : ""}" href="${esc(l.href)}" target="_blank" rel="noopener">${esc(l.label)} ${ARROW}</a>`).join("")}
+      </div>
+    </article>`).join("");
+
+  /* ticker: written once, duplicated for a seamless loop */
+  const STACK = ["Go", "PostgreSQL", "Redis", "AWS", "RabbitMQ", "MQTT", "Kafka", "Docker", "FastAPI", "Stripe Connect", "pgvector", "Claude API", "OpenAI API", "Langfuse", "MCP", "Kubernetes"];
+  const half = STACK.map(s => `<span>${s}</span><span class="ac">/</span>`).join("");
+  document.getElementById("track").innerHTML = half + half;
+
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* trace: streams in line by line, holds, clears, repeats */
+  const TRACE = [
+    "19:02:11.004  job 8f3a  claimed    worker 112",
+    "19:02:11.006  job 8f3a  heartbeat  ok",
+    "19:02:11.418  job 8f3a  provider   openai  412 ms",
+    '19:02:11.420  job 8f3a  billed     <span class="ac">once</span>    key 8f3a',
+    "19:02:11.421  job 8f3a  done",
+    "19:02:14.100  job 9c01  claimed    worker 007",
+    '19:02:44.100  job 9c01  heartbeat  <span class="ac">missed</span>',
+    "19:02:44.101  job 9c01  reaped     requeued",
+    '19:02:44.102  job 9c01  billed     <span class="ac">not again</span>'
+  ];
+  const traceEl = document.getElementById("trace-lines");
+  if (reduced) {
+    traceEl.innerHTML = TRACE.map(l => `<span class="ln">${l}</span>`).join("");
+  } else {
+    let i = 0;
+    const step = () => {
+      if (i < TRACE.length) {
+        traceEl.insertAdjacentHTML("beforeend", `<span class="ln">${TRACE[i++]}</span>`);
+        setTimeout(step, i === 6 ? 900 : 480);
+      } else {
+        setTimeout(() => { traceEl.innerHTML = ""; i = 0; step(); }, 4200);
+      }
+    };
+    setTimeout(step, 1100);
+  }
+
+  /* clock in IST */
+  const clock = document.getElementById("clock");
+  const fmt = new Intl.DateTimeFormat("en-GB", { hour: "2-digit", minute: "2-digit", hour12: false, timeZone: "Asia/Kolkata" });
+  const tickClock = () => { clock.textContent = fmt.format(new Date()) + " IST"; };
+  tickClock(); setInterval(tickClock, 30000);
+
+  /* nav background once the page scrolls */
+  const nav = document.getElementById("nav");
+  const onScroll = () => nav.classList.toggle("scrolled", scrollY > 8);
+  onScroll(); addEventListener("scroll", onScroll, { passive: true });
+
+  /* highlight the section under the viewport in the nav */
+  const navLinks = [...document.querySelectorAll('.nav .links a[href^="#"]')];
+  const secIO = new IntersectionObserver(entries => {
+    for (const en of entries) {
+      if (!en.isIntersecting) continue;
+      navLinks.forEach(a => a.toggleAttribute("aria-current", a.getAttribute("href") === "#" + en.target.id));
+    }
+  }, { rootMargin: "-40% 0px -55% 0px" });
+  document.querySelectorAll("main section[id]").forEach(s => secIO.observe(s));
+
+  /* ============================================================
+     Motion. Everything below needs GSAP; without it the page is
+     simply static, nothing is hidden.
+     ============================================================ */
+  const hasGsap = typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined";
+  if (hasGsap && !reduced) {
+    gsap.registerPlugin(ScrollTrigger, MotionPathPlugin, DrawSVGPlugin, SplitText);
+
+    /* smooth scrolling */
+    let lenis = null;
+    if (typeof Lenis !== "undefined") {
+      lenis = new Lenis({ lerp: 0.16, wheelMultiplier: 1.05 });
+      lenis.on("scroll", ScrollTrigger.update);
+      gsap.ticker.add(t => lenis.raf(t * 1000));
+      gsap.ticker.lagSmoothing(0);
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener("click", e => {
+      const target = document.querySelector(a.getAttribute("href"));
+      if (!target) return;
+      e.preventDefault();
+      if (lenis) lenis.scrollTo(target, { offset: -72, duration: 1.1 });
+      else target.scrollIntoView({ behavior: "smooth" });
+    }));
+
+    /* hero: one staged sequence */
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    tl.from(".h1line span", { yPercent: 110, duration: 1, stagger: 0.12 }, 0.1)
+      .from(".hero-key", { opacity: 0, y: 10, duration: 0.6 }, 0)
+      .from(".hero-lede", { opacity: 0, y: 14, duration: 0.8 }, 0.55)
+      .from(".hero-links a", { opacity: 0, y: 10, duration: 0.6, stagger: 0.06 }, 0.7)
+      .from(".now > *", { opacity: 0, y: 8, duration: 0.5, stagger: 0.04 }, 0.4)
+      .from(".trace-wrap", { opacity: 0, y: 14, duration: 0.8 }, 0.35);
+
+    /* section headings: characters rise through a mask, once fonts are in */
+    document.fonts.ready.then(() => {
+      document.querySelectorAll(".sec h2").forEach(h => {
+        const split = new SplitText(h, { type: "chars" });
+        gsap.from(split.chars, { yPercent: 110, opacity: 0, stagger: 0.035, duration: 0.7, ease: "power3.out",
+          scrollTrigger: { trigger: h, start: "top 88%", once: true } });
+      });
+      ScrollTrigger.refresh();
+    });
+
+    /* rows drift in */
+    gsap.utils.toArray(".row").forEach(row => {
+      gsap.from(row, { opacity: 0, y: 22, duration: 0.8, ease: "power3.out",
+        scrollTrigger: { trigger: row, start: "top 90%", once: true } });
+    });
+
+    /* numbers count up */
+    document.querySelectorAll("[data-count]").forEach(elm => {
+      const node = elm.firstChild, target = +elm.dataset.count, o = { v: 0 };
+      gsap.to(o, { v: target, duration: 1.2, ease: "power2.out", snap: { v: 1 },
+        onUpdate: () => { node.textContent = o.v; },
+        scrollTrigger: { trigger: elm, start: "top 92%", once: true } });
+    });
+
+    /* diagrams: nodes appear, edges draw themselves, ports light, packets flow */
+    const startPackets = svg => {
+      svg.querySelectorAll(".pkt").forEach((pkt, i) => {
+        const path = svg.querySelector("#" + pkt.dataset.path);
+        const len = path.getTotalLength();
+        const tw = gsap.to(pkt, {
+          motionPath: { path, align: path, alignOrigin: [0.5, 0.5] },
+          duration: Math.max(1.4, len / 55), ease: "none",
+          repeat: -1, repeatDelay: 0.5, delay: i * 0.45,
+          onStart: () => { pkt.style.opacity = 1; }
+        });
+        ScrollTrigger.create({ trigger: svg, start: "top bottom", end: "bottom top",
+          onEnter: () => tw.play(), onEnterBack: () => tw.play(),
+          onLeave: () => tw.pause(), onLeaveBack: () => tw.pause() });
+      });
+    };
+    document.querySelectorAll(".dg").forEach(svg => {
+      const t = gsap.timeline({ scrollTrigger: { trigger: svg, start: "top 88%", once: true } });
+      t.from(svg.querySelectorAll(".node"), { opacity: 0, y: 6, stagger: 0.07, duration: 0.5, ease: "power2.out" })
+       .from(svg.querySelectorAll(".edge"), { drawSVG: "0%", duration: 0.9, stagger: 0.12, ease: "power2.inOut" }, "-=0.25")
+       .from(svg.querySelectorAll(".ports circle"), { scale: 0, transformOrigin: "center", stagger: 0.02, duration: 0.3, ease: "back.out(2)" }, "-=0.6")
+       .from(svg.querySelectorAll(".note"), { opacity: 0, duration: 0.5 }, "-=0.3")
+       .add(() => startPackets(svg), "-=0.3");
+    });
+
+    /* cursor ring on pointer devices */
+    if (matchMedia("(pointer: fine)").matches) {
+      const cur = document.getElementById("cur");
+      document.body.classList.add("has-cur");
+      const toX = gsap.quickTo(cur, "x", { duration: 0.18, ease: "power3" });
+      const toY = gsap.quickTo(cur, "y", { duration: 0.18, ease: "power3" });
+      addEventListener("mousemove", e => { toX(e.clientX); toY(e.clientY); cur.classList.add("on"); });
+      addEventListener("mouseleave", () => cur.classList.remove("on"));
+      document.querySelectorAll("a, button").forEach(a => {
+        a.addEventListener("mouseenter", () => cur.classList.add("big"));
+        a.addEventListener("mouseleave", () => cur.classList.remove("big"));
+      });
+    }
+  }
+</script>
+</body>
+</html>
