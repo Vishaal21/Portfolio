@@ -167,14 +167,33 @@
     .sec { padding-top: 64px; }
     .sec h2 { font-size: 36px; }
     .nav .links { gap: 18px; }
-    .nav .links a.hide-sm { display: none; }
+  }
+  @media (hover: none), (pointer: coarse) {
+    .grain { display: none; }
+    .nav.scrolled { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(12, 13, 17, 0.96); }
+    .trace::after { display: none; }
+    .row, .row .key, .row::before, .nav .links a::after { transition: none; }
   }
   @media (max-width: 600px) {
+    .nav .wrap { height: auto; flex-direction: column; align-items: flex-start; gap: 6px; padding-top: 12px; padding-bottom: 12px; }
+    .nav .links { gap: 14px; flex-wrap: wrap; }
+    section { scroll-margin-top: 96px; }
+    .hero { padding-top: 28px; padding-bottom: 40px; gap: 32px; }
+    .trace { font-size: 10.5px; line-height: 1.7; padding: 14px; min-height: 0; }
+    .code { font-size: 11px; }
+    .ticker::before, .ticker::after { width: 48px; }
+    .sec { padding-top: 56px; }
+    .sec h2 { font-size: 32px; }
+    .row h3 { font-size: 21px; }
+    .body { font-size: 17px; }
     .dl { grid-template-columns: 1fr; gap: 2px 0; }
     .dl dd { margin-bottom: 10px; }
     .nums { gap: 8px; }
     .aside-num { font-size: 30px; }
     .now { grid-template-columns: 84px minmax(0, 1fr); }
+  }
+  @media (max-width: 380px) {
+    .trace { font-size: 9.5px; }
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -194,7 +213,7 @@
     <nav class="links" aria-label="Sections">
       <a href="#work">work</a>
       <a href="#ai">ai</a>
-      <a href="#projects" class="hide-sm">projects</a>
+      <a href="#projects">projects</a>
       <a href="#contact">contact</a>
       <a class="res" href="https://drive.google.com/file/d/1sxDF7uOFDFUkzWAADTKVF5I_-oFGxMGX/view" target="_blank" rel="noopener">resume</a>
     </nav>
@@ -577,6 +596,7 @@ AND    balance &gt;= $1;
   document.getElementById("track").innerHTML = half + half;
 
   const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const touch = matchMedia("(pointer: coarse)").matches || matchMedia("(hover: none)").matches;
 
   /* trace: streams in line by line, holds, clears, repeats */
   const TRACE = [
@@ -634,10 +654,11 @@ AND    balance &gt;= $1;
   const hasGsap = typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined";
   if (hasGsap && !reduced) {
     gsap.registerPlugin(ScrollTrigger, MotionPathPlugin, DrawSVGPlugin, SplitText);
+    ScrollTrigger.config({ ignoreMobileResize: true });
 
     /* smooth scrolling */
     let lenis = null;
-    if (typeof Lenis !== "undefined") {
+    if (typeof Lenis !== "undefined" && !touch) {
       lenis = new Lenis({ lerp: 0.16, wheelMultiplier: 1.05 });
       lenis.on("scroll", ScrollTrigger.update);
       gsap.ticker.add(t => lenis.raf(t * 1000));
@@ -672,7 +693,7 @@ AND    balance &gt;= $1;
 
     /* rows drift in */
     gsap.utils.toArray(".row").forEach(row => {
-      gsap.from(row, { opacity: 0, y: 22, duration: 0.8, ease: "power3.out",
+      gsap.from(row, { opacity: 0, y: touch ? 10 : 22, duration: touch ? 0.5 : 0.8, ease: "power3.out",
         scrollTrigger: { trigger: row, start: "top 90%", once: true } });
     });
 
@@ -691,8 +712,8 @@ AND    balance &gt;= $1;
         const len = path.getTotalLength();
         const tw = gsap.to(pkt, {
           motionPath: { path, align: path, alignOrigin: [0.5, 0.5] },
-          duration: Math.max(1.4, len / 55), ease: "none",
-          repeat: -1, repeatDelay: 0.5, delay: i * 0.45,
+          duration: Math.max(1.4, len / (touch ? 40 : 55)), ease: "none",
+          repeat: -1, repeatDelay: touch ? 1.2 : 0.5, delay: i * 0.45,
           onStart: () => { pkt.style.opacity = 1; }
         });
         ScrollTrigger.create({ trigger: svg, start: "top bottom", end: "bottom top",
