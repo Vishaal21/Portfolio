@@ -17,6 +17,11 @@
 {"@context":"https://schema.org","@type":"Person","name":"Vishal Singh","jobTitle":"Technical Lead","worksFor":{"@type":"Organization","name":"The Factual Holding Company"},"address":{"@type":"PostalAddress","addressLocality":"Hyderabad","addressCountry":"IN"},"email":"mailto:singhvishal1821@gmail.com","sameAs":["https://www.linkedin.com/in/vishalsingh21/","https://github.com/Vishaal21","https://x.com/singhvishaal21"]}
 </script>
 <style>
+  /* Fallback faces scaled to the webfont's advance widths, so the line
+     breaks are the same before and after the webfonts arrive. */
+  @font-face { font-family: "Newsreader fb"; src: local("Georgia"); size-adjust: 91%; }
+  @font-face { font-family: "Plex Mono fb"; src: local("Menlo"), local("Consolas"); size-adjust: 99.7%; }
+
   :root {
     --bg: #0c0d11;
     --panel: #121318;
@@ -29,8 +34,8 @@
     --accent-glow: rgba(242, 177, 52, 0.85);
     --live: #3ddc84;
     --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
-    --serif: "Newsreader", Georgia, "Times New Roman", serif;
-    --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+    --serif: "Newsreader", "Newsreader fb", Georgia, "Times New Roman", serif;
+    --mono: "IBM Plex Mono", "Plex Mono fb", Menlo, Consolas, monospace;
     color-scheme: dark;
   }
   * { box-sizing: border-box; }
@@ -71,7 +76,7 @@
   /* hero */
   .hero { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: 64px; padding-top: 56px; padding-bottom: 64px; align-items: end; }
   .hero-left { display: flex; flex-direction: column; gap: 28px; container-type: inline-size; }
-  h1 { margin: 0; font-family: var(--display); font-size: clamp(36px, 5.2vw, 84px); font-size: clamp(36px, 12cqw, 84px); font-weight: 800; line-height: 0.95; letter-spacing: -0.035em; white-space: nowrap; }
+  h1 { margin: 0; font-family: var(--display); font-size: min(9.5vw, 84px); font-size: min(11cqw, 84px); font-weight: 800; line-height: 0.95; letter-spacing: -0.035em; white-space: nowrap; }
   .h1line { display: block; overflow: hidden; padding-bottom: 0.1em; margin-bottom: -0.1em; }
   .h1line span { display: block; }
   .hero-links { display: flex; flex-wrap: wrap; gap: 10px 24px; font-family: var(--mono); font-size: 13px; }
@@ -154,7 +159,7 @@
 
   @media (max-width: 1000px) {
     .wrap { padding: 0 24px; }
-    .hero { grid-template-columns: 1fr; gap: 40px; padding-top: 32px; }
+    .hero { grid-template-columns: minmax(0, 1fr); gap: 40px; padding-top: 32px; }
     .hero-right { gap: 24px; }
     .row { grid-template-columns: 1fr; gap: 16px; padding: 28px 16px; margin: 0 -16px; }
     .row::before { left: 16px; }
