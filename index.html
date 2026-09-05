@@ -5,36 +5,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vishal Singh</title>
 <meta name="description" content="Vishal Singh, backend and AI engineer in Hyderabad. Backend systems and AI agents that survive production: Go, PostgreSQL, Redis, AWS, agents, RAG, evals.">
-<meta name="theme-color" content="#0c0d11">
+<meta name="theme-color" content="#050709">
 <meta property="og:title" content="Vishal Singh">
 <meta property="og:description" content="Backend systems and AI agents that survive production.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230c0d11'/%3E%3Cpath d='M18 3 L7 18.5 H15 L13 29 L25 12.5 H17 Z' fill='%23f2b134'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23050709'/%3E%3Cpath d='M18 3 L7 18.5 H15 L13 29 L25 12.5 H17 Z' fill='%23f2b134'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500&display=swap">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Vishal Singh","jobTitle":"Technical Lead","worksFor":{"@type":"Organization","name":"The Factual Holding Company"},"address":{"@type":"PostalAddress","addressLocality":"Hyderabad","addressCountry":"IN"},"email":"mailto:singhvishal1821@gmail.com","sameAs":["https://www.linkedin.com/in/vishalsingh21/","https://github.com/Vishaal21","https://x.com/singhvishaal21"]}
 </script>
 <style>
-  /* Fallback faces scaled to the webfont's advance widths, so the line
-     breaks are the same before and after the webfonts arrive. */
-  @font-face { font-family: "Newsreader fb"; src: local("Georgia"); size-adjust: 91%; }
   @font-face { font-family: "Plex Mono fb"; src: local("Menlo"), local("Consolas"); size-adjust: 99.7%; }
 
   :root {
-    --bg: #0c0d11;
-    --panel: #121318;
-    --text: #ece9e2;
-    --body: #b8b5ad;
-    --dim: #7d7e88;
-    --rule: rgba(236, 233, 226, 0.12);
-    --stroke: rgba(236, 233, 226, 0.35);
+    --bg: #050709;
+    --panel: #0b0e13;
+    --text: #e6edf3;
+    --body: #a9b4c0;
+    --dim: #66717f;
+    --rule: rgba(230, 237, 243, 0.1);
+    --stroke: rgba(230, 237, 243, 0.3);
     --accent: #f2b134;
     --accent-glow: rgba(242, 177, 52, 0.85);
+    --cyan: #39d9ff;
+    --cyan-soft: rgba(57, 217, 255, 0.12);
     --live: #3ddc84;
     --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
-    --serif: "Newsreader", "Newsreader fb", Georgia, "Times New Roman", serif;
+    --sans: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
     --mono: "IBM Plex Mono", "Plex Mono fb", Menlo, Consolas, monospace;
     color-scheme: dark;
   }
@@ -42,43 +41,61 @@
   html { scroll-behavior: smooth; }
   html.lenis, html.lenis body { height: auto; }
   .lenis.lenis-smooth { scroll-behavior: auto; }
-  body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--serif); font-size: 18px; line-height: 1.5; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
   a { color: inherit; text-decoration: none; transition: color 0.2s; }
   a:hover { color: var(--accent); }
-  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  :focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
   .skip { position: absolute; left: -999px; top: 8px; background: var(--accent); color: #1a1204; padding: 8px 12px; font-family: var(--mono); font-size: 13px; z-index: 20; }
   .skip:focus { left: 8px; }
   .grain { position: fixed; inset: 0; pointer-events: none; opacity: 0.045; z-index: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  .stars { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; opacity: 0; }
   .wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
   .mono { font-family: var(--mono); }
   .key { font-family: var(--mono); font-size: 12px; line-height: 1.6; color: var(--dim); }
-  .body { font-size: 18px; line-height: 1.5; color: var(--body); margin: 0; }
+  .body { font-size: 17px; line-height: 1.55; color: var(--body); margin: 0; }
   .ac { color: var(--accent); }
+  .cy { color: var(--cyan); }
 
   /* cursor ring, pointer devices only */
-  .cur { position: fixed; top: 0; left: 0; width: 22px; height: 22px; border: 1px solid var(--accent); border-radius: 50%; pointer-events: none; z-index: 50; transform: translate(-50%, -50%); opacity: 0; transition: width 0.25s, height 0.25s, opacity 0.3s, background 0.25s; }
+  .cur { position: fixed; top: 0; left: 0; width: 22px; height: 22px; border: 1px solid var(--cyan); border-radius: 50%; pointer-events: none; z-index: 50; transform: translate(-50%, -50%); opacity: 0; transition: width 0.25s, height 0.25s, opacity 0.3s, background 0.25s; }
   .cur.on { opacity: 0.9; }
-  .cur.big { width: 44px; height: 44px; background: rgba(242, 177, 52, 0.08); }
-  @media (pointer: fine) { body.has-cur, body.has-cur a { cursor: none; } }
+  .cur.big { width: 44px; height: 44px; background: var(--cyan-soft); }
+  @media (pointer: fine) { body.has-cur, body.has-cur a, body.has-cur button { cursor: none; } }
+
+  /* boot sequence, once per session */
+  .boot { position: fixed; inset: 0; z-index: 100; background: var(--bg); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 13px; color: var(--body); transition: opacity 0.5s; }
+  .boot.out { opacity: 0; pointer-events: none; }
+  .boot pre { margin: 0; font-family: inherit; line-height: 1.9; min-width: 300px; white-space: pre; }
+  .boot .bl { display: block; animation: slideIn 0.25s ease-out both; }
+  .boot .dim { color: var(--dim); }
+  .boot .ok { color: var(--live); }
+  .boot-skip { position: absolute; left: 0; right: 0; bottom: 28px; text-align: center; font-size: 11px; color: var(--dim); }
+  .boot-tap { display: none; }
 
   /* nav */
   .nav { position: sticky; top: 0; z-index: 10; transition: background 0.3s, border-color 0.3s; border-bottom: 1px solid transparent; }
-  .nav.scrolled { background: rgba(12, 13, 17, 0.82); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom-color: var(--rule); }
+  .nav.scrolled { background: rgba(5, 7, 9, 0.82); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom-color: var(--rule); }
   .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; }
   .nav a { font-family: var(--mono); font-size: 13px; position: relative; }
-  .nav .links { display: flex; gap: 28px; }
+  .nav .links { display: flex; align-items: center; gap: 28px; }
   .nav .links a { color: var(--body); padding: 4px 0; }
   .nav .links a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); }
   .nav .links a:hover::after, .nav .links a[aria-current="true"]::after { transform: scaleX(1); }
   .nav .links a[aria-current="true"] { color: var(--text); }
   .nav .links a.res { color: var(--accent); }
+  .nav .ask { background: none; border: 0; padding: 4px 0; color: var(--cyan); font-family: var(--mono); font-size: 13px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+  .nav .ask kbd { font: inherit; font-size: 11px; border: 1px solid var(--rule); border-radius: 3px; padding: 0 5px; color: var(--dim); }
+  .nav .ask:hover kbd { border-color: var(--cyan); color: var(--cyan); }
 
   /* hero */
   .hero { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: 64px; padding-top: 56px; padding-bottom: 64px; align-items: end; }
-  .hero-left { display: flex; flex-direction: column; gap: 28px; container-type: inline-size; }
+  .hero-left { display: flex; flex-direction: column; gap: 24px; container-type: inline-size; }
   h1 { margin: 0; font-family: var(--display); font-size: min(9.5vw, 84px); font-size: min(11cqw, 84px); font-weight: 800; line-height: 0.95; letter-spacing: -0.035em; white-space: nowrap; }
-  .h1line { display: block; overflow: hidden; padding-bottom: 0.1em; margin-bottom: -0.1em; }
-  .h1line span { display: block; }
+  .h1line { display: block; min-height: 0.95em; }
+  .tok { animation: tokIn 0.2s ease-out both; }
+  .caret { display: inline-block; width: 0.08em; height: 0.82em; background: var(--cyan); box-shadow: 0 0 12px var(--cyan); vertical-align: -0.06em; margin-left: 0.08em; animation: blink 1s steps(2) infinite; }
+  .stream { margin: 0; display: flex; flex-wrap: wrap; gap: 6px 20px; font-family: var(--mono); font-size: 12px; color: var(--dim); }
+  .stream b { font-weight: 400; color: var(--cyan); font-variant-numeric: tabular-nums; }
   .hero-links { display: flex; flex-wrap: wrap; gap: 10px 24px; font-family: var(--mono); font-size: 13px; }
   .hero-links a { color: var(--body); }
   .hero-links a.ac { color: var(--accent); }
@@ -86,9 +103,9 @@
   .now { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 10px 16px; font-family: var(--mono); font-size: 12.5px; line-height: 1.6; color: var(--dim); }
   .now b { font-weight: 400; color: var(--text); }
   .trace-wrap { display: flex; flex-direction: column; gap: 10px; }
-  .code { margin: 0; font-family: var(--mono); font-size: 12px; line-height: 1.7; color: var(--body); white-space: pre; background: var(--panel); padding: 16px 18px; overflow-x: auto; }
+  .code { margin: 0; font-family: var(--mono); font-size: 12px; line-height: 1.7; color: var(--body); white-space: pre; background: var(--panel); border: 1px solid var(--rule); padding: 16px 18px; overflow-x: auto; }
   .trace { font-size: 11.5px; line-height: 1.75; padding: 18px 20px; min-height: calc(11 * 1.75em + 36px); position: relative; }
-  .trace::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.6; animation: scan 4s linear infinite; }
+  .trace::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--cyan), transparent); opacity: 0.6; animation: scan 4s linear infinite; }
   .trace-head { color: var(--dim); display: flex; justify-content: space-between; }
   .pulse { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--live); margin-right: 8px; vertical-align: 1px; box-shadow: 0 0 6px var(--live); animation: blink 1.4s ease-in-out infinite; }
   .ln { display: block; animation: slideIn 0.35s ease-out both; }
@@ -102,26 +119,38 @@
   .track span { padding: 0 22px; white-space: nowrap; }
   .ticker:hover .track { animation-play-state: paused; }
 
+  /* telemetry strip */
+  .tele { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-bottom: 1px solid var(--rule); }
+  .tele > div { display: flex; flex-direction: column; gap: 4px; padding: 16px 24px 16px 0; font-family: var(--mono); font-size: 11.5px; color: var(--dim); }
+  .tele > div + div { padding-left: 24px; border-left: 1px solid var(--rule); }
+  .tele b { font-family: var(--display); font-weight: 700; font-size: 22px; line-height: 1; letter-spacing: -0.01em; color: var(--text); font-variant-numeric: tabular-nums; }
+  .tele b.cy { color: var(--cyan); }
+  .tele b i { font-style: normal; font-family: var(--mono); font-weight: 400; font-size: 12px; color: var(--dim); margin-left: 4px; }
+
   /* sections and rows */
   section { scroll-margin-top: 80px; }
-  .sec { padding: 96px 0 24px; display: flex; align-items: baseline; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .sec { padding: 96px 0 24px; display: flex; align-items: baseline; justify-content: space-between; gap: 10px 24px; flex-wrap: wrap; }
+  .sec .idx { flex-basis: 100%; font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cyan); }
   .sec h2 { margin: 0; font-family: var(--display); font-size: 44px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; overflow: hidden; padding-bottom: 0.05em; }
-  .sec p { margin: 0; font-size: 18px; color: var(--dim); font-style: italic; }
+  .sec p { margin: 0; font-family: var(--mono); font-size: 12.5px; color: var(--dim); }
   .row { display: grid; grid-template-columns: 176px minmax(0, 1fr) 320px; gap: 40px; padding: 36px 24px; margin: 0 -24px; border-top: 1px solid var(--rule); align-items: start; transition: background 0.25s; position: relative; }
-  .row::before { content: ""; position: absolute; left: 24px; top: -1px; height: 1px; width: 0; background: var(--accent); transition: width 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
-  .row:hover::before { width: 120px; }
-  .row:hover { background: linear-gradient(90deg, rgba(236, 233, 226, 0.035), transparent 70%); }
+  .row::before, .row::after { content: ""; position: absolute; width: 14px; height: 14px; opacity: 0; pointer-events: none; transition: opacity 0.3s, transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); }
+  .row::before { left: 8px; top: 8px; border-top: 1px solid var(--accent); border-left: 1px solid var(--accent); transform: translate(6px, 6px); }
+  .row::after { right: 8px; bottom: 8px; border-bottom: 1px solid var(--accent); border-right: 1px solid var(--accent); transform: translate(-6px, -6px); }
+  .row:hover::before, .row:hover::after { opacity: 1; transform: none; }
+  .row:hover { background: linear-gradient(90deg, rgba(57, 217, 255, 0.04), transparent 70%); }
   .row:hover .key { color: var(--body); }
   .row h3 { margin: 0 0 10px; font-family: var(--display); font-size: 27px; font-weight: 700; line-height: 1.15; letter-spacing: -0.015em; text-wrap: balance; }
   .row.slim { padding-top: 18px; padding-bottom: 18px; }
+  #ai .key .ac, #projects .key .ac { color: var(--cyan); }
   .inv { margin: 14px 0 0; font-family: var(--mono); font-size: 12.5px; line-height: 1.6; color: var(--body); }
   .inv b { font-weight: 500; margin-right: 10px; color: var(--accent); }
   .aside-num { font-family: var(--display); font-size: 40px; font-weight: 800; line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
   .aside-cap { font-family: var(--mono); font-size: 11.5px; line-height: 1.5; color: var(--dim); margin-top: 6px; }
   .nums { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
   .nums.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .dl { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 10px 24px; margin: 22px 0 0; font-size: 16.5px; line-height: 1.5; color: var(--body); }
-  .dl dt { margin: 0; font-family: var(--mono); font-size: 12px; line-height: 2.05; color: var(--dim); }
+  .dl { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 10px 24px; margin: 22px 0 0; font-size: 16px; line-height: 1.5; color: var(--body); }
+  .dl dt { margin: 0; font-family: var(--mono); font-size: 12px; line-height: 2; color: var(--dim); }
   .dl dd { margin: 0; }
   .lnk { font-family: var(--mono); font-size: 13px; display: inline-flex; align-items: center; gap: 6px; }
   .lnk svg { transition: transform 0.2s; }
@@ -138,22 +167,51 @@
   .c-val { font-family: var(--mono); font-size: 14px; display: inline-flex; align-items: center; gap: 6px; color: var(--text); }
   .c-val svg { transition: transform 0.2s; }
   .c-item:hover .c-val svg { transform: translate(2px, -2px); }
-  footer { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding: 48px 0 40px; border-top: 1px solid var(--rule); }
+  footer { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding: 48px 0 64px; border-top: 1px solid var(--rule); }
 
   /* diagrams: node graphs drawn by the script from the DIAGRAMS data */
   .dg { display: block; width: 100%; max-width: 320px; height: auto; overflow: visible; }
-  .dg .node rect { fill: rgba(18, 19, 24, 0.9); stroke: var(--stroke); }
+  .dg .node rect { fill: rgba(11, 14, 19, 0.92); stroke: var(--stroke); transition: stroke 0.2s; }
+  .dg .node[data-tip] { cursor: default; }
+  .dg .node:hover rect { stroke: var(--cyan); }
   .dg .node text { font-family: var(--mono); font-size: 10px; fill: var(--body); }
-  .dg .edge { fill: none; stroke: rgba(236, 233, 226, 0.22); stroke-width: 1.2; stroke-linecap: round; }
-  .dg .port { fill: var(--accent); }
-  .dg .halo { fill: var(--accent); opacity: 0.22; }
+  .dg .edge { fill: none; stroke: rgba(230, 237, 243, 0.22); stroke-width: 1.2; stroke-linecap: round; }
+  .dg .port { fill: var(--cyan); }
+  .dg .halo { fill: var(--cyan); opacity: 0.22; }
   .dg .pkt { opacity: 0; }
-  .dg .pkt .core { fill: #fff8e6; }
-  .dg .pkt .halo { opacity: 0.35; }
+  .dg .pkt .core { fill: #e6fbff; }
+  .dg .pkt .halo { opacity: 0.35; transition: opacity 0.3s; }
+  .dg:hover .pkt .halo { opacity: 0.8; }
   .dg .note { font-family: var(--mono); font-size: 10px; fill: var(--dim); }
+  .tip { position: fixed; z-index: 60; pointer-events: none; font-family: var(--mono); font-size: 11.5px; line-height: 1.5; color: var(--text); background: var(--panel); border: 1px solid var(--stroke); padding: 6px 10px; max-width: 260px; opacity: 0; transform: translate(-50%, -100%); transition: opacity 0.15s; }
+  .tip.on { opacity: 1; }
+
+  /* hud readouts, desktop only */
+  .hud { position: fixed; left: 0; right: 0; bottom: 0; z-index: 9; display: flex; justify-content: space-between; gap: 24px; padding: 10px 20px 8px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.02em; color: var(--dim); pointer-events: none; background: linear-gradient(180deg, transparent, rgba(5, 7, 9, 0.92)); }
+  .hud span { display: inline-flex; align-items: center; gap: 6px; }
+  .hud b { font-weight: 400; color: var(--body); font-variant-numeric: tabular-nums; }
+  .hud .pulse { margin-right: 2px; }
+
+  /* command palette */
+  .pal { position: fixed; inset: 0; z-index: 90; background: rgba(5, 7, 9, 0.7); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); display: none; align-items: flex-start; justify-content: center; padding: 14vh 16px 0; }
+  .pal.open { display: flex; }
+  .pal-box { width: min(640px, 100%); background: var(--panel); border: 1px solid var(--rule); box-shadow: 0 0 0 1px rgba(57, 217, 255, 0.15), 0 30px 80px rgba(0, 0, 0, 0.6); font-family: var(--mono); }
+  .pal-in { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--rule); }
+  .pal-in span { color: var(--cyan); }
+  .pal-in input { flex: 1; min-width: 0; background: none; border: 0; outline: 0; color: var(--text); font: inherit; font-size: 15px; }
+  .pal-in input::placeholder { color: var(--dim); }
+  .pal-list { max-height: 44vh; overflow: auto; }
+  .pal-item { display: flex; justify-content: space-between; gap: 16px; padding: 10px 16px; font-size: 13px; color: var(--body); cursor: pointer; }
+  .pal-item.sel, .pal-item:hover { background: var(--cyan-soft); color: var(--text); }
+  .pal-item small { font-size: 12px; color: var(--dim); text-align: right; }
+  .pal-ans { display: none; padding: 14px 16px; font-size: 13.5px; line-height: 1.7; color: var(--body); border-top: 1px solid var(--rule); }
+  .pal-ans.on { display: block; }
+  .pal-ans .caret { width: 7px; height: 14px; vertical-align: -2px; }
+  .pal-foot { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 8px 16px; font-size: 11px; color: var(--dim); border-top: 1px solid var(--rule); }
 
   @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.15; } }
   @keyframes slideIn { from { opacity: 0; transform: translateX(-6px); } to { opacity: 1; transform: none; } }
+  @keyframes tokIn { from { opacity: 0; filter: blur(6px); } to { opacity: 1; filter: none; } }
   @keyframes tick { to { transform: translateX(-50%); } }
   @keyframes scan { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
 
@@ -161,8 +219,12 @@
     .wrap { padding: 0 24px; }
     .hero { grid-template-columns: minmax(0, 1fr); gap: 40px; padding-top: 32px; }
     .hero-right { gap: 24px; }
+    .tele { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .tele > div:nth-child(odd) { padding-left: 0; border-left: 0; }
+    .tele > div:nth-child(n+3) { border-top: 1px solid var(--rule); }
     .row { grid-template-columns: 1fr; gap: 16px; padding: 28px 16px; margin: 0 -16px; }
-    .row::before { left: 16px; }
+    .row::before { left: 4px; top: 6px; }
+    .row::after { right: 4px; bottom: 6px; }
     .row h3 { font-size: 23px; }
     .c-mail { grid-template-columns: 1fr auto; gap: 8px 16px; padding: 24px 16px; margin: 0 -16px; }
     .c-mail .key { grid-column: 1 / -1; }
@@ -172,12 +234,17 @@
     .sec { padding-top: 64px; }
     .sec h2 { font-size: 36px; }
     .nav .links { gap: 18px; }
+    .hud { display: none; }
+    footer { padding-bottom: 40px; }
   }
   @media (hover: none), (pointer: coarse) {
     .grain { display: none; }
-    .nav.scrolled { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(12, 13, 17, 0.96); }
+    .nav.scrolled { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(5, 7, 9, 0.96); }
     .trace::after { display: none; }
-    .row, .row .key, .row::before, .nav .links a::after { transition: none; }
+    .row, .row .key, .row::before, .row::after, .nav .links a::after { transition: none; }
+    .nav .ask kbd { display: none; }
+    .boot-key { display: none; }
+    .boot-tap { display: inline; }
   }
   @media (max-width: 600px) {
     .nav .wrap { height: auto; flex-direction: column; align-items: flex-start; gap: 6px; padding-top: 12px; padding-bottom: 12px; }
@@ -187,30 +254,48 @@
     .trace { font-size: 10.5px; line-height: 1.7; padding: 14px; min-height: calc(11 * 1.7em + 28px); }
     .code { font-size: 11px; }
     .ticker::before, .ticker::after { width: 48px; }
+    .tele b { font-size: 18px; }
     .sec { padding-top: 56px; }
     .sec h2 { font-size: 32px; }
     .row h3 { font-size: 21px; }
-    .body { font-size: 17px; }
+    .body { font-size: 16px; }
     .dl { grid-template-columns: 1fr; gap: 2px 0; }
     .dl dd { margin-bottom: 10px; }
     .nums { gap: 8px; }
     .aside-num { font-size: 30px; }
     .now { grid-template-columns: 84px minmax(0, 1fr); }
+    .pal { padding-top: 8vh; }
   }
   @media (max-width: 380px) {
     .trace { font-size: 9.5px; }
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    .pulse, .ln, .track, .trace::after { animation: none !important; }
+    .pulse, .ln, .track, .trace::after, .caret, .tok, .boot .bl { animation: none !important; }
     .dg .pkt { display: none; }
   }
 </style>
 </head>
 <body>
 <a class="skip" href="#work">Skip to work</a>
+<canvas class="stars" id="stars" aria-hidden="true"></canvas>
 <div class="grain" aria-hidden="true"></div>
 <div class="cur" id="cur" aria-hidden="true"></div>
+<div class="tip" id="tip" role="tooltip"></div>
+
+<div class="boot" id="boot" aria-hidden="true">
+  <pre id="boot-lines"></pre>
+  <span class="boot-skip"><span class="boot-key">any key</span><span class="boot-tap">tap</span> to skip</span>
+</div>
+
+<div class="pal" id="pal" role="dialog" aria-modal="true" aria-label="Command palette">
+  <div class="pal-box">
+    <div class="pal-in"><span aria-hidden="true">&gt;</span><input id="pal-in" type="text" autocomplete="off" spellcheck="false" placeholder="jump to a section, or ask a question" aria-label="Command or question"></div>
+    <div class="pal-list" id="pal-list"></div>
+    <div class="pal-ans" id="pal-ans" aria-live="polite"></div>
+    <div class="pal-foot"><span>enter to run, arrows to move, esc to close</span><span>scripted answers, no model call</span></div>
+  </div>
+</div>
 
 <header class="nav" id="nav">
   <div class="wrap">
@@ -221,6 +306,7 @@
       <a href="#projects">projects</a>
       <a href="#contact">contact</a>
       <a class="res" href="https://drive.google.com/file/d/1sxDF7uOFDFUkzWAADTKVF5I_-oFGxMGX/view" target="_blank" rel="noopener">resume</a>
+      <button class="ask" id="ask-btn" type="button">ask <kbd>/</kbd></button>
     </nav>
   </div>
 </header>
@@ -229,12 +315,13 @@
   <section class="wrap hero" aria-label="Introduction">
     <div class="hero-left">
       <p class="key hero-key" style="margin: 0;">Vishal Singh / backend and AI engineer / Hyderabad, India</p>
-      <h1>
-        <span class="h1line"><span>Backend systems</span></span>
-        <span class="h1line"><span>and AI agents that</span></span>
-        <span class="h1line"><span class="ac">survive production.</span></span>
+      <h1 aria-label="Backend systems and AI agents that survive production.">
+        <span class="h1line" aria-hidden="true"><span></span></span>
+        <span class="h1line" aria-hidden="true"><span></span></span>
+        <span class="h1line" aria-hidden="true"><span class="ac"></span></span>
       </h1>
-      <p class="body hero-lede" style="max-width: 560px; font-size: 20px;">Two-plus years of event-driven, concurrent services on PostgreSQL, Redis and AWS across fintech, healthcare, AI and IoT. I own the schema, the queue, the model calls, the money path and the deploy.</p>
+      <p class="stream" aria-hidden="true"><span>stream <b id="stream-state">live</b></span><span>tokens <b id="stream-toks">0</b></span><span>rate <b id="stream-rate">0.0</b> tok/s</span></p>
+      <p class="body hero-lede" style="max-width: 560px; font-size: 19px;">Two-plus years of event-driven, concurrent services on PostgreSQL, Redis and AWS across fintech, healthcare, AI and IoT. I own the schema, the queue, the model calls, the money path and the deploy.</p>
       <div class="hero-links">
         <a class="ac" href="mailto:singhvishal1821@gmail.com">singhvishal1821@gmail.com</a>
         <a href="https://www.linkedin.com/in/vishalsingh21/" target="_blank" rel="noopener">linkedin</a>
@@ -263,8 +350,17 @@
 
   <div class="wrap">
 
+    <div class="tele" aria-label="Illustrative platform telemetry">
+      <div><span>queue depth</span><b id="t-q">312</b></div>
+      <div><span>workers alive</span><b id="t-w">150<i>/ 150</i></b></div>
+      <div><span>jobs done today</span><b class="cy" id="t-j">184,206</b></div>
+      <div><span>p95 provider latency</span><b id="t-p">412<i>ms</i></b></div>
+    </div>
+    <p class="key" style="margin: 10px 0 0;">Illustrative telemetry for the ad platform. The numbers move, they are not live.</p>
+
     <section id="work">
       <div class="sec">
+        <span class="idx">01 / work</span>
         <h2>Work</h2>
         <p>Three companies, one language, everything in production.</p>
       </div>
@@ -342,6 +438,7 @@ AND    balance &gt;= $1;
 
     <section id="ai">
       <div class="sec">
+        <span class="idx">02 / ai</span>
         <h2>AI</h2>
         <p>Models in production, and an agent being built in public.</p>
       </div>
@@ -385,6 +482,7 @@ AND    balance &gt;= $1;
 
     <section id="projects">
       <div class="sec">
+        <span class="idx">03 / projects</span>
         <h2>Projects</h2>
         <p>Built outside work. One row each, more as they land.</p>
       </div>
@@ -398,20 +496,22 @@ AND    balance &gt;= $1;
 
     <section id="stack">
       <div class="sec">
+        <span class="idx">04 / stack</span>
         <h2>Stack</h2>
         <p>What I reach for, by job.</p>
       </div>
-      <div class="row slim"><div class="key">languages</div><p class="body" style="font-size: 16.5px;">Go, Python, TypeScript, JavaScript, SQL, Java, C and C++</p><div></div></div>
-      <div class="row slim"><div class="key">backend</div><p class="body" style="font-size: 16.5px;">Gin, Echo, FastAPI, NestJS, Express, Celery, REST, microservices</p><div></div></div>
-      <div class="row slim"><div class="key">data</div><p class="body" style="font-size: 16.5px;">PostgreSQL, pgvector, MongoDB, Redis with RedisJSON and RediSearch</p><div></div></div>
-      <div class="row slim"><div class="key">messaging</div><p class="body" style="font-size: 16.5px;">RabbitMQ, MQTT, Kafka</p><div></div></div>
-      <div class="row slim"><div class="key">ai</div><p class="body" style="font-size: 16.5px;">Claude and OpenAI APIs, tool calling, structured outputs, multi-provider orchestration, async inference pipelines, RAG with pgvector, evals and LLM judges, Langfuse, MCP, LangGraph</p><div></div></div>
-      <div class="row slim"><div class="key">cloud</div><p class="body" style="font-size: 16.5px;">AWS EC2, RDS, S3, ECR, Docker, Kubernetes, Nginx, PgBouncer, GitHub Actions</p><div></div></div>
-      <div class="row slim"><div class="key">integrations</div><p class="body" style="font-size: 16.5px;">Stripe Connect and webhooks, Meta OAuth and Graph API, Twilio</p><div></div></div>
+      <div class="row slim"><div class="key">languages</div><p class="body" style="font-size: 16px;">Go, Python, TypeScript, JavaScript, SQL, Java, C and C++</p><div></div></div>
+      <div class="row slim"><div class="key">backend</div><p class="body" style="font-size: 16px;">Gin, Echo, FastAPI, NestJS, Express, Celery, REST, microservices</p><div></div></div>
+      <div class="row slim"><div class="key">data</div><p class="body" style="font-size: 16px;">PostgreSQL, pgvector, MongoDB, Redis with RedisJSON and RediSearch</p><div></div></div>
+      <div class="row slim"><div class="key">messaging</div><p class="body" style="font-size: 16px;">RabbitMQ, MQTT, Kafka</p><div></div></div>
+      <div class="row slim"><div class="key">ai</div><p class="body" style="font-size: 16px;">Claude and OpenAI APIs, tool calling, structured outputs, multi-provider orchestration, async inference pipelines, RAG with pgvector, evals and LLM judges, Langfuse, MCP, LangGraph</p><div></div></div>
+      <div class="row slim"><div class="key">cloud</div><p class="body" style="font-size: 16px;">AWS EC2, RDS, S3, ECR, Docker, Kubernetes, Nginx, PgBouncer, GitHub Actions</p><div></div></div>
+      <div class="row slim"><div class="key">integrations</div><p class="body" style="font-size: 16px;">Stripe Connect and webhooks, Meta OAuth and Graph API, Twilio</p><div></div></div>
     </section>
 
     <section id="contact">
       <div class="sec">
+        <span class="idx">05 / contact</span>
         <h2>Contact</h2>
         <p>Backend, AI platform, or forward-deployed work.</p>
       </div>
@@ -434,6 +534,14 @@ AND    balance &gt;= $1;
   </div>
 </main>
 
+<div class="hud" aria-hidden="true">
+  <span><i class="pulse"></i>runtime <b>online</b></span>
+  <span>sec <b id="hud-sec">top</b></span>
+  <span>scroll <b id="hud-scroll">000</b>%</span>
+  <span>hyd <b id="hud-clock">--:--</b> IST</span>
+  <span class="cy">/ to ask</span>
+</div>
+
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/MotionPathPlugin.min.js"></script>
@@ -445,7 +553,7 @@ AND    balance &gt;= $1;
      PROJECTS. To add one, copy an object and paste it at the top
      of this list (newest first). Fields:
        year   : shown in the key column
-       tag    : one or two words, shown in amber
+       tag    : one or two words, shown in cyan
        title  : the row heading
        body   : two to four sentences, what it is and what is inside
        links  : [{ label, href, accent }] ; accent: true makes it amber
@@ -464,62 +572,81 @@ AND    balance &gt;= $1;
   ];
 
   /* ============================================================
+     ASK. Scripted answers for the command palette. Each entry is
+     { m: regex tested against the lowercased question, a: answer }.
+     First match wins, the last entry is the fallback. Edit freely.
+     ============================================================ */
+  const QA = [
+    { m: /hire|hiring|contact|email|reach|available|open to/, a: "Email singhvishal1821@gmail.com. LinkedIn vishalsingh21, GitHub Vishaal21. Backend, AI platform, or forward-deployed work." },
+    { m: /where|based|hyderabad|remote|location|city|live/, a: "Hyderabad, India. Working remote right now. Open to remote, or to Hyderabad and Bangalore." },
+    { m: /\bai\b|agent|llm|model|rag|eval|langfuse|mcp/, a: "In production: 44 models across 4 providers, orchestrated on a durable Postgres queue, every job billed exactly once. Building in public: an accounts payable agent in Go. Raw tool-calling loop, no framework, evals on 100 known invoices, Langfuse tracing, a Go MCP server." },
+    { m: /queue|worker|crash|fail|idempot|retry|billed|durable/, a: "A job is billed exactly once, whatever dies mid-run. Heartbeat and reaper recovery requeue a dead worker's job without paying the provider twice. Same rule in the agent: run state in Postgres with an idempotency key. Kill it, restart, it resumes and never posts twice." },
+    { m: /\bgo\b|golang|language/, a: "Go, in production, for 2.5 plus years. Gin and Echo on PostgreSQL, Redis, RabbitMQ, MQTT. Python for extraction and evals. TypeScript when the job needs it." },
+    { m: /now|current|factual|company|job|work|build|built|do you do/, a: "Technical Lead at The Factual Holding Company since Jan 2026, remote. Four platforms on Go and PostgreSQL: telehealth with a self-built EMR, an AI ad platform for 10,000 daily users, a prop-firm trading platform with race-free money movement, and a multi-brand creator monetization platform. Before that, a self-running farm at OneIoT and a multi-tenant trading platform at Etrdz." },
+    { m: /stack|tool|database|postgres|redis|aws|kube|docker|cloud/, a: "Go, PostgreSQL with pgvector, Redis, RabbitMQ, MQTT, Kafka. AWS EC2, RDS, S3, Docker, Kubernetes, GitHub Actions. Claude and OpenAI APIs, Langfuse, MCP." },
+    { m: /project|demo|neural|visual|side/, a: "Neural Network Visualized: a 350-parameter language model you can watch think, trained in the browser in under a second. Live at vishaal21.github.io/Neural-Network-Visualized. More on GitHub as they land." },
+    { m: /educat|college|degree|study|university|b\.?tech/, a: "B.Tech Computer Science, Lovely Professional University, 2019 to 2023." },
+    { m: /experience|years|how long|senior|junior/, a: "2.5 plus years, all Go in production. Etrdz 2023 to 2025, OneIoT 2025, Factual from Jan 2026." },
+    { m: /./, a: "Scripted answers only, there is no model behind this box yet. Try: what do you build, what is your stack, where are you based, how do I contact you." }
+  ];
+
+  /* ============================================================
      DIAGRAMS. Each is a small node graph, drawn into the matching
      <svg data-dg="name"> (viewBox 320 x 130). A node is
-     { id, label, x, y, w }, 24px tall. An edge is [fromId, toId]
-     for a curved connector, or { d: "svg path" } for a custom one.
-     Notes are small captions.
+     { id, label, x, y, w, tip }, 24px tall. tip is the hover text.
+     An edge is [fromId, toId] for a curved connector, or
+     { d: "svg path" } for a custom one. Notes are small captions.
      ============================================================ */
   const DIAGRAMS = {
     telehealth: {
       nodes: [
-        { id: "p", label: "patient", x: 0, y: 6, w: 72 },
-        { id: "d", label: "physician", x: 0, y: 50, w: 72 },
-        { id: "a", label: "admin", x: 0, y: 94, w: 72 },
-        { id: "api", label: "one Go API", x: 126, y: 50, w: 80 },
-        { id: "emr", label: "EMR / RDS", x: 236, y: 50, w: 84 }
+        { id: "p", label: "patient", x: 0, y: 6, w: 72, tip: "Patient portal. Sees only its own records." },
+        { id: "d", label: "physician", x: 0, y: 50, w: 72, tip: "Physician portal. Its own role, its own session." },
+        { id: "a", label: "admin", x: 0, y: 94, w: 72, tip: "Admin portal. Same backend, separate role." },
+        { id: "api", label: "one Go API", x: 126, y: 50, w: 80, tip: "One Go backend for all three portals. Per-role session auth." },
+        { id: "emr", label: "EMR / RDS", x: 236, y: 50, w: 84, tip: "Self-built EMR on PostgreSQL on RDS. Replaced a third-party vendor." }
       ],
       edges: [["p", "api"], ["d", "api"], ["a", "api"], ["api", "emr"]],
       notes: [{ x: 236, y: 98, text: "TLS, per-role auth" }]
     },
     ads: {
       nodes: [
-        { id: "api", label: "API", x: 0, y: 50, w: 40 },
-        { id: "q", label: "pg queue", x: 52, y: 50, w: 66 },
-        { id: "w", label: "150 workers", x: 132, y: 50, w: 84 },
-        { id: "pv", label: "4 providers", x: 232, y: 50, w: 88 }
+        { id: "api", label: "API", x: 0, y: 50, w: 40, tip: "Accepts the job and hands it to the queue." },
+        { id: "q", label: "pg queue", x: 52, y: 50, w: 66, tip: "Postgres-backed durable job queue. 500 to 1,000 jobs in flight." },
+        { id: "w", label: "150 workers", x: 132, y: 50, w: 84, tip: "150 workers. Heartbeat while running, reaper requeues a dead one." },
+        { id: "pv", label: "4 providers", x: 232, y: 50, w: 88, tip: "44 models across 4 AI providers, with provider fallback." }
       ],
       edges: [["api", "q"], ["q", "w"], ["w", "pv"], { d: "M174 74 C174 106, 85 106, 85 74" }],
       notes: [{ x: 96, y: 122, text: "heartbeat, reaper, requeue" }]
     },
     creator: {
       nodes: [
-        { id: "ft", label: "first touch", x: 0, y: 50, w: 84 },
-        { id: "at", label: "attribution", x: 104, y: 50, w: 86 },
-        { id: "sp", label: "Stripe payout", x: 220, y: 50, w: 100 }
+        { id: "ft", label: "first touch", x: 0, y: 50, w: 84, tip: "The first touch that brought the buyer in." },
+        { id: "at", label: "attribution", x: 104, y: 50, w: 86, tip: "Fixed priority: paid, then affiliate, then organic." },
+        { id: "sp", label: "Stripe payout", x: 220, y: 50, w: 100, tip: "Automated Stripe Connect payouts. Chargebacks are reversed." }
       ],
       edges: [["ft", "at"], ["at", "sp"]],
       notes: [{ x: 104, y: 98, text: "paid > affiliate > organic" }, { x: 200, y: 114, text: "chargebacks reversed" }]
     },
     farm: {
       nodes: [
-        { id: "s", label: "setpoints", x: 0, y: 6, w: 80 },
-        { id: "n", label: "sensors", x: 0, y: 50, w: 80 },
-        { id: "w", label: "weather", x: 0, y: 94, w: 80 },
-        { id: "go", label: "Go control", x: 128, y: 50, w: 80 },
-        { id: "mq", label: "MQTT out", x: 238, y: 50, w: 82 }
+        { id: "s", label: "setpoints", x: 0, y: 6, w: 80, tip: "Operator targets for each machine." },
+        { id: "n", label: "sensors", x: 0, y: 50, w: 80, tip: "Live firmware sensor data over MQTT." },
+        { id: "w", label: "weather", x: 0, y: 94, w: 80, tip: "Outside conditions, fed into every decision." },
+        { id: "go", label: "Go control", x: 128, y: 50, w: 80, tip: "One concurrent control loop per machine, on goroutines, holding its target." },
+        { id: "mq", label: "MQTT out", x: 238, y: 50, w: 82, tip: "Per-machine decisions published back to the devices." }
       ],
       edges: [["s", "go"], ["n", "go"], ["w", "go"], ["go", "mq"]],
       notes: [{ x: 128, y: 98, text: "one loop per machine" }]
     },
     agent: {
       nodes: [
-        { id: "pdf", label: "PDF", x: 0, y: 50, w: 36 },
-        { id: "ex", label: "extract", x: 46, y: 50, w: 58 },
-        { id: "m", label: "3-way match", x: 116, y: 50, w: 84 },
-        { id: "h", label: "human?", x: 212, y: 50, w: 56 },
-        { id: "po", label: "post", x: 280, y: 50, w: 40 },
-        { id: "pg", label: "pgvector", x: 116, y: 96, w: 84 }
+        { id: "pdf", label: "PDF", x: 0, y: 50, w: 36, tip: "A supplier invoice, any layout." },
+        { id: "ex", label: "extract", x: 46, y: 50, w: 58, tip: "FastAPI and Pydantic turn the PDF into one invoice JSON." },
+        { id: "m", label: "3-way match", x: 116, y: 50, w: 84, tip: "Invoice against purchase order and goods receipt. Tolerances live in Go." },
+        { id: "h", label: "human?", x: 212, y: 50, w: 56, tip: "Mismatch parks with a one-line reason. A human decides." },
+        { id: "po", label: "post", x: 280, y: 50, w: 40, tip: "Posts to the ledger once. Idempotency key in Postgres." },
+        { id: "pg", label: "pgvector", x: 116, y: 96, w: 84, tip: "Supplier contracts and policy notes, cited in every reason." }
       ],
       edges: [["pdf", "ex"], ["ex", "m"], ["m", "h"], ["h", "po"], { d: "M158 74 L158 96" }],
       notes: [{ x: 212, y: 112, text: "contracts, policy" }]
@@ -565,6 +692,7 @@ AND    balance &gt;= $1;
     });
     spec.nodes.forEach(n => {
       const g = el("g", { class: "node" }, gNodes);
+      if (n.tip) g.dataset.tip = n.tip;
       el("rect", { x: n.x + 0.5, y: n.y + 0.5, width: n.w, height: NODE_H, rx: 3 }, g);
       const t = el("text", { x: n.x + 8, y: n.y + 16 }, g);
       t.textContent = n.label;
@@ -602,6 +730,167 @@ AND    balance &gt;= $1;
 
   const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const touch = matchMedia("(pointer: coarse)").matches || matchMedia("(hover: none)").matches;
+  const fine = matchMedia("(pointer: fine)").matches;
+  let lenis = null;
+  let startHero = () => {};
+
+  /* boot: a short terminal on the first visit of a session, any key skips */
+  const BOOT = [
+    ["vishal.singh runtime", "v2026.09", "cy"],
+    ["loading model", "ok", "ok"],
+    ["warming workers", "150/150", "ok"],
+    ["mounting sections", "5/5", "ok"],
+    ["ready", "", "cy"]
+  ];
+  function runBoot() {
+    const boot = document.getElementById("boot");
+    let seen = false;
+    try { seen = sessionStorage.getItem("booted") === "1"; } catch (e) {}
+    if (reduced || seen) { boot.remove(); return Promise.resolve(); }
+    try { sessionStorage.setItem("booted", "1"); } catch (e) {}
+    return new Promise(res => {
+      const pre = document.getElementById("boot-lines");
+      let i = 0, done = false;
+      const finish = () => {
+        if (done) return;
+        done = true;
+        boot.classList.add("out");
+        setTimeout(() => boot.remove(), 500);
+        res();
+      };
+      const step = () => {
+        if (done) return;
+        if (i < BOOT.length) {
+          const [l, r, c] = BOOT[i++];
+          pre.insertAdjacentHTML("beforeend", `<span class="bl"><span class="dim">&gt;</span> ${esc(l.padEnd(22, "."))} <span class="${c}">${esc(r)}</span></span>`);
+          setTimeout(step, i === BOOT.length ? 460 : 170);
+        } else {
+          finish();
+        }
+      };
+      step();
+      addEventListener("keydown", finish, { once: true });
+      boot.addEventListener("click", finish);
+    });
+  }
+
+  /* hero: the headline streams in token by token */
+  const H1 = [["Backend", "systems"], ["and", "AI", "agents", "that"], ["survive", "production."]];
+  function streamHero() {
+    const lines = [...document.querySelectorAll(".h1line > span")];
+    const toks = document.getElementById("stream-toks"), rate = document.getElementById("stream-rate"), state = document.getElementById("stream-state");
+    const caret = document.createElement("span");
+    caret.className = "caret";
+    const all = [];
+    H1.forEach((ws, li) => ws.forEach(w => all.push([li, w])));
+    if (reduced) {
+      H1.forEach((ws, li) => { lines[li].textContent = ws.join(" "); });
+      lines[2].appendChild(caret);
+      toks.textContent = all.length; rate.textContent = "--"; state.textContent = "done";
+      return;
+    }
+    let i = 0;
+    const t0 = performance.now();
+    const step = () => {
+      const [li, w] = all[i];
+      const s = document.createElement("span");
+      s.className = "tok";
+      s.textContent = (lines[li].querySelector(".tok") ? " " : "") + w;
+      lines[li].appendChild(s);
+      lines[li].appendChild(caret);
+      i++;
+      const secs = (performance.now() - t0) / 1000;
+      toks.textContent = i;
+      rate.textContent = (i / Math.max(secs, 0.05)).toFixed(1);
+      if (i < all.length) setTimeout(step, 70 + Math.random() * 90);
+      else state.textContent = "done";
+    };
+    setTimeout(step, 250);
+  }
+
+  /* stars: a sparse starfield behind the whole page. Three depth layers,
+     slow drift, parallax on the mouse and on scroll, a gentle twinkle. */
+  function starfield(canvas) {
+    const ctx = canvas.getContext("2d");
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    const sprite = ([r, g, b]) => {
+      const s = 48, c = document.createElement("canvas");
+      c.width = c.height = s;
+      const g2 = c.getContext("2d"), gr = g2.createRadialGradient(s / 2, s / 2, 0, s / 2, s / 2, s / 2);
+      gr.addColorStop(0, `rgba(${r},${g},${b},1)`);
+      gr.addColorStop(0.18, `rgba(${r},${g},${b},0.85)`);
+      gr.addColorStop(0.45, `rgba(${r},${g},${b},0.18)`);
+      gr.addColorStop(1, `rgba(${r},${g},${b},0)`);
+      g2.fillStyle = gr; g2.fillRect(0, 0, s, s);
+      return c;
+    };
+    const SPR = [[255, 250, 242], [168, 204, 255], [255, 196, 150]].map(sprite);
+    let w = 0, h = 0, stars = [], raf = 0, running = false, revealAt = 0, scroll = 0, last = 0;
+    const frameGap = touch ? 30 : 0;
+    const mouse = { x: 0, y: 0 }, eye = { x: 0, y: 0 };
+    const seed = () => {
+      const n = Math.max(80, Math.round((w * h) / (touch ? 7000 : 5200)));
+      stars = [];
+      for (let i = 0; i < n; i++) {
+        const z = [0.35, 0.65, 1][Math.floor(Math.random() * 3)];
+        const big = Math.random() < 0.04, c = Math.random();
+        const ang = Math.random() * Math.PI * 2, sp = (0.02 + Math.random() * 0.04) * z;
+        stars.push({
+          x: Math.random() * w, y: Math.random() * h, z,
+          s: (big ? 2.2 + Math.random() * 1.4 : 0.5 + Math.random() * 0.9) * (0.6 + 0.4 * z),
+          al: (big ? 0.9 : 0.25 + Math.random() * 0.5) * (0.5 + 0.5 * z),
+          col: c < 0.78 ? 0 : c < 0.92 ? 1 : 2,
+          vx: Math.cos(ang) * sp, vy: Math.sin(ang) * sp,
+          tw: Math.random() * 6.28, ts: Math.random() < 0.3 ? 0.6 + Math.random() * 1.4 : 0
+        });
+      }
+    };
+    const size = () => {
+      const reseed = innerWidth !== w || Math.abs(innerHeight - h) > 160 || !stars.length;
+      w = innerWidth; h = innerHeight;
+      canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      if (reseed) seed();
+    };
+    const draw = now => {
+      if (running && now - last < frameGap) { raf = requestAnimationFrame(draw); return; }
+      last = now;
+      const fade = revealAt ? Math.min(1, (now - revealAt) / 1600) : 0;
+      canvas.style.opacity = fade.toFixed(3);
+      eye.x += (mouse.x - eye.x) * 0.05; eye.y += (mouse.y - eye.y) * 0.05;
+      const t = now * 0.001, span = h + 8;
+      ctx.clearRect(0, 0, w, h);
+      ctx.globalCompositeOperation = "lighter";
+      for (const s of stars) {
+        if (!reduced) {
+          s.x += s.vx; s.y += s.vy;
+          if (s.x < -4) s.x += w + 8; else if (s.x > w + 4) s.x -= w + 8;
+          if (s.y < -4) s.y += span; else if (s.y > h + 4) s.y -= span;
+        }
+        const py = (((s.y - scroll * 0.12 * s.z) % span) + span) % span - 4;
+        const X = s.x + eye.x * 26 * s.z, Y = py + eye.y * 18 * s.z;
+        const d = s.s * 5;
+        ctx.globalAlpha = s.al * (s.ts ? 0.75 + 0.25 * Math.sin(t * s.ts + s.tw) : 1);
+        ctx.drawImage(SPR[s.col], X - d / 2, Y - d / 2, d, d);
+      }
+      ctx.globalAlpha = 1;
+      if (running) raf = requestAnimationFrame(draw);
+    };
+    const start = () => { if (running || reduced) return; running = true; raf = requestAnimationFrame(draw); };
+    const stop = () => { running = false; cancelAnimationFrame(raf); };
+    size();
+    addEventListener("resize", size, { passive: true });
+    document.addEventListener("visibilitychange", () => { if (!revealAt) return; document.hidden ? stop() : start(); });
+    if (!touch) addEventListener("mousemove", e => { mouse.x = (e.clientX / w) * 2 - 1; mouse.y = (e.clientY / h) * 2 - 1; }, { passive: true });
+    return {
+      reveal() {
+        revealAt = performance.now();
+        if (reduced) { revealAt = 1; draw(performance.now()); } else start();
+      },
+      setScroll(y) { if (!reduced) scroll = y; }
+    };
+  }
+  const sky = starfield(document.getElementById("stars"));
 
   /* trace: streams in line by line, holds, clears, repeats */
   const TRACE = [
@@ -631,26 +920,157 @@ AND    balance &gt;= $1;
     setTimeout(step, 1100);
   }
 
-  /* clock in IST */
-  const clock = document.getElementById("clock");
+  /* clock in IST, shown in the hero and in the hud */
+  const clocks = [document.getElementById("clock"), document.getElementById("hud-clock")];
   const fmt = new Intl.DateTimeFormat("en-GB", { hour: "2-digit", minute: "2-digit", hour12: false, timeZone: "Asia/Kolkata" });
-  const tickClock = () => { clock.textContent = fmt.format(new Date()) + " IST"; };
+  const tickClock = () => { const t = fmt.format(new Date()); clocks[0].textContent = t + " IST"; clocks[1].textContent = t; };
   tickClock(); setInterval(tickClock, 30000);
 
-  /* nav background once the page scrolls */
+  /* nav background and hud scroll percent */
   const nav = document.getElementById("nav");
-  const onScroll = () => nav.classList.toggle("scrolled", scrollY > 8);
+  const hudScroll = document.getElementById("hud-scroll");
+  const onScroll = () => {
+    nav.classList.toggle("scrolled", scrollY > 8);
+    sky.setScroll(scrollY);
+    const max = document.documentElement.scrollHeight - innerHeight;
+    hudScroll.textContent = String(Math.round(max > 0 ? Math.min(1, scrollY / max) * 100 : 0)).padStart(3, "0");
+  };
   onScroll(); addEventListener("scroll", onScroll, { passive: true });
 
-  /* highlight the section under the viewport in the nav */
+  /* highlight the section under the viewport in the nav and the hud */
   const navLinks = [...document.querySelectorAll('.nav .links a[href^="#"]')];
+  const hudSec = document.getElementById("hud-sec");
   const secIO = new IntersectionObserver(entries => {
     for (const en of entries) {
       if (!en.isIntersecting) continue;
       navLinks.forEach(a => a.toggleAttribute("aria-current", a.getAttribute("href") === "#" + en.target.id));
+      hudSec.textContent = en.target.id;
     }
   }, { rootMargin: "-40% 0px -55% 0px" });
   document.querySelectorAll("main section[id]").forEach(s => secIO.observe(s));
+
+  /* telemetry: a slow random walk, clearly labelled as illustrative */
+  const T = { q: 312, w: 150, j: 184206, p: 412 };
+  const tq = document.getElementById("t-q"), tw = document.getElementById("t-w"), tj = document.getElementById("t-j"), tp = document.getElementById("t-p");
+  const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+  const rnd = (lo, hi) => lo + Math.floor(Math.random() * (hi - lo + 1));
+  const tickTele = () => {
+    T.q = clamp(T.q + rnd(-30, 30), 40, 900);
+    T.w = Math.random() < 0.06 ? 150 - rnd(1, 2) : 150;
+    T.j += rnd(3, 14);
+    T.p = clamp(T.p + rnd(-25, 25), 280, 640);
+    tq.textContent = T.q;
+    tw.innerHTML = `${T.w}<i>/ 150</i>`;
+    tj.textContent = T.j.toLocaleString("en-US");
+    tp.innerHTML = `${T.p}<i>ms</i>`;
+  };
+  if (!reduced) setInterval(tickTele, 900);
+
+  /* tooltips on diagram nodes, pointer devices only */
+  const tip = document.getElementById("tip");
+  if (fine) document.querySelectorAll(".dg .node[data-tip]").forEach(g => {
+    g.addEventListener("mouseenter", () => { tip.textContent = g.dataset.tip; tip.classList.add("on"); });
+    g.addEventListener("mousemove", e => { tip.style.left = e.clientX + "px"; tip.style.top = (e.clientY - 14) + "px"; });
+    g.addEventListener("mouseleave", () => tip.classList.remove("on"));
+  });
+
+  /* text scramble on hover for the small links */
+  const GLYPHS = "!<>-_\\/[]{}=+*^?#01";
+  function scramble(elm) {
+    const orig = elm.dataset.text || (elm.dataset.text = elm.textContent);
+    let frame = 0;
+    const total = 12;
+    clearInterval(elm._sc);
+    elm._sc = setInterval(() => {
+      frame++;
+      const settled = Math.floor(orig.length * frame / total);
+      let s = orig.slice(0, settled);
+      for (let i = settled; i < orig.length; i++) s += orig[i] === " " ? " " : GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
+      elm.textContent = s;
+      if (frame >= total) { clearInterval(elm._sc); elm.textContent = orig; }
+    }, 28);
+  }
+  if (fine && !reduced) document.querySelectorAll(".nav .links a, .hero-links a").forEach(a => a.addEventListener("mouseenter", () => scramble(a)));
+
+  /* command palette: slash or cmd+k, jump to a section or ask a question */
+  const CMDS = [
+    { k: "work", d: "three companies, everything in production", go: "#work" },
+    { k: "ai", d: "models in production, an agent in public", go: "#ai" },
+    { k: "projects", d: "built outside work", go: "#projects" },
+    { k: "stack", d: "what I reach for, by job", go: "#stack" },
+    { k: "contact", d: "email, linkedin, github", go: "#contact" },
+    { k: "resume", d: "PDF on Drive", href: "https://drive.google.com/file/d/1sxDF7uOFDFUkzWAADTKVF5I_-oFGxMGX/view" },
+    { k: "github", d: "github.com/Vishaal21", href: "https://github.com/Vishaal21" },
+    { k: "linkedin", d: "linkedin.com/in/vishalsingh21", href: "https://www.linkedin.com/in/vishalsingh21/" },
+    { k: "email", d: "singhvishal1821@gmail.com", href: "mailto:singhvishal1821@gmail.com" }
+  ];
+  const pal = document.getElementById("pal"), palIn = document.getElementById("pal-in"), palList = document.getElementById("pal-list"), palAns = document.getElementById("pal-ans");
+  let palItems = [], palSel = 0, ansTimer = 0;
+  const palOpen = () => pal.classList.contains("open");
+  const scrollToSel = sel => {
+    const t = document.querySelector(sel);
+    if (!t) return;
+    if (lenis) lenis.scrollTo(t, { offset: -72, duration: 1.1 });
+    else t.scrollIntoView({ behavior: "smooth" });
+  };
+  function renderPal() {
+    const raw = palIn.value.trim(), q = raw.toLowerCase();
+    const hits = CMDS.filter(c => !q || c.k.includes(q) || c.d.toLowerCase().includes(q));
+    const isQ = q.includes(" ") || q.endsWith("?");
+    const askItem = { k: "ask", d: `"${raw}"`, ask: raw };
+    palItems = !q ? hits : isQ ? [askItem, ...hits] : hits.length ? hits : [askItem];
+    palSel = 0;
+    palList.innerHTML = palItems.map((c, i) => `<div class="pal-item${i === 0 ? " sel" : ""}" data-i="${i}"><span>${esc(c.k)}</span><small>${esc(c.d)}</small></div>`).join("");
+  }
+  function answer(q) {
+    const hit = QA.find(x => x.m.test(q.toLowerCase())) || QA[QA.length - 1];
+    const words = hit.a.split(" ");
+    palAns.classList.add("on");
+    palAns.innerHTML = '<span class="cy">&gt; </span><span id="ans-t"></span><span class="caret"></span>';
+    const t = document.getElementById("ans-t");
+    clearTimeout(ansTimer);
+    if (reduced) { t.textContent = hit.a; return; }
+    let i = 0;
+    const step = () => {
+      t.textContent += (i ? " " : "") + words[i++];
+      if (i < words.length) ansTimer = setTimeout(step, 28 + Math.random() * 40);
+    };
+    step();
+  }
+  function runPal(c) {
+    if (c.ask) return answer(c.ask);
+    closePal();
+    if (c.href) { window.open(c.href, "_blank", "noopener"); return; }
+    scrollToSel(c.go);
+  }
+  const openPal = () => {
+    pal.classList.add("open");
+    palIn.value = "";
+    palAns.classList.remove("on"); palAns.innerHTML = "";
+    renderPal();
+    setTimeout(() => palIn.focus(), 0);
+  };
+  const closePal = () => { pal.classList.remove("open"); clearTimeout(ansTimer); palIn.blur(); };
+  palIn.addEventListener("input", renderPal);
+  palList.addEventListener("click", e => { const d = e.target.closest(".pal-item"); if (d) runPal(palItems[+d.dataset.i]); });
+  pal.addEventListener("click", e => { if (e.target === pal) closePal(); });
+  document.getElementById("ask-btn").addEventListener("click", openPal);
+  addEventListener("keydown", e => {
+    if (document.getElementById("boot")) return;
+    const typing = /^(INPUT|TEXTAREA)$/.test(document.activeElement && document.activeElement.tagName);
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") { e.preventDefault(); palOpen() ? closePal() : openPal(); return; }
+    if (e.key === "/" && !typing && !palOpen()) { e.preventDefault(); openPal(); return; }
+    if (!palOpen()) return;
+    if (e.key === "Escape") { closePal(); return; }
+    if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+      e.preventDefault();
+      if (!palItems.length) return;
+      palSel = (palSel + (e.key === "ArrowDown" ? 1 : palItems.length - 1)) % palItems.length;
+      palList.querySelectorAll(".pal-item").forEach((d, i) => d.classList.toggle("sel", i === palSel));
+      return;
+    }
+    if (e.key === "Enter") { e.preventDefault(); if (palItems[palSel]) runPal(palItems[palSel]); }
+  });
 
   /* ============================================================
      Motion. Everything below needs GSAP; without it the page is
@@ -662,7 +1082,6 @@ AND    balance &gt;= $1;
     ScrollTrigger.config({ ignoreMobileResize: true });
 
     /* smooth scrolling */
-    let lenis = null;
     if (typeof Lenis !== "undefined" && !touch) {
       lenis = new Lenis({ lerp: 0.16, wheelMultiplier: 1.05 });
       lenis.on("scroll", ScrollTrigger.update);
@@ -673,18 +1092,18 @@ AND    balance &gt;= $1;
       const target = document.querySelector(a.getAttribute("href"));
       if (!target) return;
       e.preventDefault();
-      if (lenis) lenis.scrollTo(target, { offset: -72, duration: 1.1 });
-      else target.scrollIntoView({ behavior: "smooth" });
+      scrollToSel(a.getAttribute("href"));
     }));
 
-    /* hero: one staged sequence */
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-    tl.from(".h1line span", { yPercent: 110, duration: 1, stagger: 0.12 }, 0.1)
-      .from(".hero-key", { opacity: 0, y: 10, duration: 0.6 }, 0)
+    /* hero: one staged sequence, played once the boot screen is gone */
+    const tl = gsap.timeline({ paused: true, defaults: { ease: "power3.out" } });
+    tl.from(".hero-key", { opacity: 0, y: 10, duration: 0.6 }, 0)
+      .from(".stream", { opacity: 0, duration: 0.6 }, 0.3)
       .from(".hero-lede", { opacity: 0, y: 14, duration: 0.8 }, 0.55)
       .from(".hero-links a", { opacity: 0, y: 10, duration: 0.6, stagger: 0.06 }, 0.7)
       .from(".now > *", { opacity: 0, y: 8, duration: 0.5, stagger: 0.04 }, 0.4)
       .from(".trace-wrap", { opacity: 0, y: 14, duration: 0.8 }, 0.35);
+    startHero = () => tl.play();
 
     /* section headings: characters rise through a mask, once fonts are in */
     document.fonts.ready.then(() => {
@@ -736,7 +1155,7 @@ AND    balance &gt;= $1;
     });
 
     /* cursor ring on pointer devices */
-    if (matchMedia("(pointer: fine)").matches) {
+    if (fine) {
       const cur = document.getElementById("cur");
       document.body.classList.add("has-cur");
       const toX = gsap.quickTo(cur, "x", { duration: 0.18, ease: "power3" });
@@ -749,6 +1168,8 @@ AND    balance &gt;= $1;
       });
     }
   }
+
+  runBoot().then(() => { sky.reveal(); startHero(); streamHero(); });
 </script>
 </body>
 </html>
