@@ -12,7 +12,11 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23050709'/%3E%3Cpath d='M18 3 L7 18.5 H15 L13 29 L25 12.5 H17 Z' fill='%23f2b134'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500&display=swap">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500&display=swap"></noscript>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Vishal Singh","jobTitle":"Technical Lead","worksFor":{"@type":"Organization","name":"The Factual Holding Company"},"address":{"@type":"PostalAddress","addressLocality":"Hyderabad","addressCountry":"IN"},"email":"mailto:singhvishal1821@gmail.com","sameAs":["https://www.linkedin.com/in/vishalsingh21/","https://github.com/Vishaal21","https://x.com/singhvishaal21"]}
 </script>
@@ -24,7 +28,7 @@
     --panel: #0b0e13;
     --text: #e6edf3;
     --body: #a9b4c0;
-    --dim: #66717f;
+    --dim: #7b8794;
     --rule: rgba(230, 237, 243, 0.1);
     --stroke: rgba(230, 237, 243, 0.3);
     --accent: #f2b134;
@@ -57,7 +61,7 @@
   .cy { color: var(--cyan); }
 
   /* cursor ring, pointer devices only */
-  .cur { position: fixed; top: 0; left: 0; width: 22px; height: 22px; border: 1px solid var(--cyan); border-radius: 50%; pointer-events: none; z-index: 50; transform: translate(-50%, -50%); opacity: 0; transition: width 0.25s, height 0.25s, opacity 0.3s, background 0.25s; }
+  .cur { position: fixed; top: 0; left: 0; width: 22px; height: 22px; border: 1px solid var(--cyan); border-radius: 50%; pointer-events: none; z-index: 50; transform: translate(-50%, -50%); opacity: 0; transition: width 0.25s, height 0.25s, opacity 0.3s, background 0.25s; will-change: transform; }
   .cur.on { opacity: 0.9; }
   .cur.big { width: 44px; height: 44px; background: var(--cyan-soft); }
   @media (pointer: fine) { body.has-cur, body.has-cur a, body.has-cur button { cursor: none; } }
@@ -133,13 +137,14 @@
   .sec .idx { flex-basis: 100%; font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cyan); }
   .sec h2 { margin: 0; font-family: var(--display); font-size: 44px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; overflow: hidden; padding-bottom: 0.05em; }
   .sec p { margin: 0; font-family: var(--mono); font-size: 12.5px; color: var(--dim); }
-  .row { display: grid; grid-template-columns: 176px minmax(0, 1fr) 320px; gap: 40px; padding: 36px 24px; margin: 0 -24px; border-top: 1px solid var(--rule); align-items: start; transition: background 0.25s; position: relative; }
-  .row::before, .row::after { content: ""; position: absolute; width: 14px; height: 14px; opacity: 0; pointer-events: none; transition: opacity 0.3s, transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); }
-  .row::before { left: 8px; top: 8px; border-top: 1px solid var(--accent); border-left: 1px solid var(--accent); transform: translate(6px, 6px); }
-  .row::after { right: 8px; bottom: 8px; border-bottom: 1px solid var(--accent); border-right: 1px solid var(--accent); transform: translate(-6px, -6px); }
+  .row { display: grid; grid-template-columns: 176px minmax(0, 1fr) 320px; gap: 40px; padding: 36px 24px; margin: 0 -24px; border-top: 1px solid var(--rule); align-items: start; transition: background 0.25s, box-shadow 0.25s; position: relative; }
+  .row::before, .row::after { content: ""; position: absolute; width: 18px; height: 18px; opacity: 0; pointer-events: none; transition: opacity 0.3s, transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); }
+  .row::before { left: 8px; top: 8px; border-top: 1.5px solid var(--cyan); border-left: 1.5px solid var(--cyan); transform: translate(6px, 6px); }
+  .row::after { right: 8px; bottom: 8px; border-bottom: 1.5px solid var(--cyan); border-right: 1.5px solid var(--cyan); transform: translate(-6px, -6px); }
   .row:hover::before, .row:hover::after { opacity: 1; transform: none; }
-  .row:hover { background: linear-gradient(90deg, rgba(57, 217, 255, 0.04), transparent 70%); }
-  .row:hover .key { color: var(--body); }
+  .row:hover { background: linear-gradient(90deg, rgba(57, 217, 255, 0.1), rgba(57, 217, 255, 0.035) 55%, rgba(57, 217, 255, 0.015)); box-shadow: inset 0 0 0 1px rgba(57, 217, 255, 0.28), inset 3px 0 0 var(--cyan), 0 0 48px rgba(57, 217, 255, 0.08); }
+  .row:hover .key { color: var(--text); }
+  .row:hover h3 { color: #fff; }
   .row h3 { margin: 0 0 10px; font-family: var(--display); font-size: 27px; font-weight: 700; line-height: 1.15; letter-spacing: -0.015em; text-wrap: balance; }
   .row.slim { padding-top: 18px; padding-bottom: 18px; }
   #ai .key .ac, #projects .key .ac { color: var(--cyan); }
@@ -171,11 +176,14 @@
 
   /* diagrams: node graphs drawn by the script from the DIAGRAMS data */
   .dg { display: block; width: 100%; max-width: 320px; height: auto; overflow: visible; }
-  .dg .node rect { fill: rgba(11, 14, 19, 0.92); stroke: var(--stroke); transition: stroke 0.2s; }
+  .dg + .code { margin-top: 14px; }
+  .dg .node rect { fill: rgba(11, 14, 19, 0.92); stroke: var(--stroke); transition: stroke 0.55s, stroke-width 0.55s, filter 0.55s; }
   .dg .node[data-tip] { cursor: default; }
   .dg .node:hover rect { stroke: var(--cyan); }
   .dg .node text { font-family: var(--mono); font-size: 10px; fill: var(--body); }
-  .dg .edge { fill: none; stroke: rgba(230, 237, 243, 0.22); stroke-width: 1.2; stroke-linecap: round; }
+  .dg .node.lit rect { stroke: rgba(57, 217, 255, 0.65); stroke-width: 1.2; filter: drop-shadow(0 0 3px rgba(57, 217, 255, 0.4)); transition-duration: 0.15s; }
+  .dg .edge { fill: none; stroke: rgba(230, 237, 243, 0.22); stroke-width: 1.2; stroke-linecap: round; transition: stroke 0.35s; }
+  .dg .edge.on { stroke: rgba(57, 217, 255, 0.6); }
   .dg .port { fill: var(--cyan); }
   .dg .halo { fill: var(--cyan); opacity: 0.22; }
   .dg .pkt { opacity: 0; }
@@ -281,7 +289,7 @@
 <canvas class="stars" id="stars" aria-hidden="true"></canvas>
 <div class="grain" aria-hidden="true"></div>
 <div class="cur" id="cur" aria-hidden="true"></div>
-<div class="tip" id="tip" role="tooltip"></div>
+<div class="tip" id="tip" aria-hidden="true"></div>
 
 <div class="boot" id="boot" aria-hidden="true">
   <pre id="boot-lines"></pre>
@@ -393,6 +401,7 @@
           <p class="inv"><b>invariant</b>Money never moves twice. Stale prices never trade.</p>
         </div>
         <div>
+          <svg class="dg" data-dg="market" viewBox="0 0 320 130" aria-hidden="true"></svg>
           <pre class="code">UPDATE wallets
 SET    balance = balance - $1
 WHERE  id = $2
@@ -616,8 +625,18 @@ AND    balance &gt;= $1;
         { id: "w", label: "150 workers", x: 132, y: 50, w: 84, tip: "150 workers. Heartbeat while running, reaper requeues a dead one." },
         { id: "pv", label: "4 providers", x: 232, y: 50, w: 88, tip: "44 models across 4 AI providers, with provider fallback." }
       ],
-      edges: [["api", "q"], ["q", "w"], ["w", "pv"], { d: "M174 74 C174 106, 85 106, 85 74" }],
+      edges: [["api", "q"], ["q", "w"], ["w", "pv"], { d: "M174 74 C174 106, 85 106, 85 74", from: "w", to: "q" }],
       notes: [{ x: 96, y: 122, text: "heartbeat, reaper, requeue" }]
+    },
+    market: {
+      nodes: [
+        { id: "pm", label: "Polymarket", x: 0, y: 50, w: 78, tip: "Third-party prediction market API. The source of every price." },
+        { id: "sw", label: "sync worker", x: 96, y: 50, w: 82, tip: "One goroutine per category, 14 of them, refreshing every 60 seconds." },
+        { id: "rd", label: "Redis", x: 196, y: 50, w: 48, tip: "The whole market store. RedisJSON and RediSearch, no Postgres table." },
+        { id: "fe", label: "frontend", x: 262, y: 50, w: 58, tip: "The dashboard reads prices from Redis, never from Polymarket directly." }
+      ],
+      edges: [["pm", "sw"], ["sw", "rd"], ["rd", "fe"]],
+      notes: [{ x: 96, y: 98, text: "14 goroutines, every 60s" }, { x: 188, y: 116, text: "stale >3 min: no trade" }]
     },
     creator: {
       nodes: [
@@ -648,7 +667,7 @@ AND    balance &gt;= $1;
         { id: "po", label: "post", x: 280, y: 50, w: 40, tip: "Posts to the ledger once. Idempotency key in Postgres." },
         { id: "pg", label: "pgvector", x: 116, y: 96, w: 84, tip: "Supplier contracts and policy notes, cited in every reason." }
       ],
-      edges: [["pdf", "ex"], ["ex", "m"], ["m", "h"], ["h", "po"], { d: "M158 74 L158 96" }],
+      edges: [["pdf", "ex"], ["ex", "m"], ["m", "h"], ["h", "po"], { d: "M158 74 L158 96", from: "m", to: "pg" }],
       notes: [{ x: 212, y: 112, text: "contracts, policy" }]
     }
   };
@@ -689,9 +708,13 @@ AND    balance &gt;= $1;
       el("circle", { r: 5.5, class: "halo" }, pkt);
       el("circle", { r: 2.2, class: "core" }, pkt);
       pkt.dataset.path = path.id;
+      const from = Array.isArray(e) ? e[0] : e.from, to = Array.isArray(e) ? e[1] : e.to;
+      if (from) pkt.dataset.from = from;
+      if (to) pkt.dataset.to = to;
     });
     spec.nodes.forEach(n => {
       const g = el("g", { class: "node" }, gNodes);
+      g.dataset.id = n.id;
       if (n.tip) g.dataset.tip = n.tip;
       el("rect", { x: n.x + 0.5, y: n.y + 0.5, width: n.w, height: NODE_H, rx: 3 }, g);
       const t = el("text", { x: n.x + 8, y: n.y + 16 }, g);
@@ -763,7 +786,7 @@ AND    balance &gt;= $1;
         if (i < BOOT.length) {
           const [l, r, c] = BOOT[i++];
           pre.insertAdjacentHTML("beforeend", `<span class="bl"><span class="dim">&gt;</span> ${esc(l.padEnd(22, "."))} <span class="${c}">${esc(r)}</span></span>`);
-          setTimeout(step, i === BOOT.length ? 460 : 170);
+          setTimeout(step, i === BOOT.length ? 360 : 140);
         } else {
           finish();
         }
@@ -812,7 +835,7 @@ AND    balance &gt;= $1;
      slow drift, parallax on the mouse and on scroll, a gentle twinkle. */
   function starfield(canvas) {
     const ctx = canvas.getContext("2d");
-    const dpr = Math.min(devicePixelRatio || 1, 2);
+    const dpr = Math.min(devicePixelRatio || 1, innerWidth * innerHeight > 1.6e6 ? 1.5 : 2);
     const sprite = ([r, g, b]) => {
       const s = 48, c = document.createElement("canvas");
       c.width = c.height = s;
@@ -825,7 +848,7 @@ AND    balance &gt;= $1;
       return c;
     };
     const SPR = [[255, 250, 242], [168, 204, 255], [255, 196, 150]].map(sprite);
-    let w = 0, h = 0, stars = [], raf = 0, running = false, revealAt = 0, scroll = 0, last = 0;
+    let w = 0, h = 0, stars = [], raf = 0, running = false, revealAt = 0, scroll = 0, last = 0, faded = false;
     const frameGap = touch ? 30 : 0;
     const mouse = { x: 0, y: 0 }, eye = { x: 0, y: 0 };
     const seed = () => {
@@ -855,8 +878,11 @@ AND    balance &gt;= $1;
     const draw = now => {
       if (running && now - last < frameGap) { raf = requestAnimationFrame(draw); return; }
       last = now;
-      const fade = revealAt ? Math.min(1, (now - revealAt) / 1600) : 0;
-      canvas.style.opacity = fade.toFixed(3);
+      if (!faded) {
+        const fade = revealAt ? Math.min(1, (now - revealAt) / 1600) : 0;
+        canvas.style.opacity = fade.toFixed(3);
+        faded = fade >= 1;
+      }
       eye.x += (mouse.x - eye.x) * 0.05; eye.y += (mouse.y - eye.y) * 0.05;
       const t = now * 0.001, span = h + 8;
       ctx.clearRect(0, 0, w, h);
@@ -926,16 +952,24 @@ AND    balance &gt;= $1;
   const tickClock = () => { const t = fmt.format(new Date()); clocks[0].textContent = t + " IST"; clocks[1].textContent = t; };
   tickClock(); setInterval(tickClock, 30000);
 
-  /* nav background and hud scroll percent */
+  /* nav background and hud scroll percent. Page height is measured on
+     resize and load, not on every scroll, and the DOM is only written
+     when a value actually changes. */
   const nav = document.getElementById("nav");
   const hudScroll = document.getElementById("hud-scroll");
+  let scrollMax = 1, lastPct = "", navScrolled = false;
+  const measure = () => { scrollMax = Math.max(1, document.documentElement.scrollHeight - innerHeight); };
   const onScroll = () => {
-    nav.classList.toggle("scrolled", scrollY > 8);
-    sky.setScroll(scrollY);
-    const max = document.documentElement.scrollHeight - innerHeight;
-    hudScroll.textContent = String(Math.round(max > 0 ? Math.min(1, scrollY / max) * 100 : 0)).padStart(3, "0");
+    const y = scrollY, s = y > 8;
+    if (s !== navScrolled) { navScrolled = s; nav.classList.toggle("scrolled", s); }
+    sky.setScroll(y);
+    const pct = String(Math.round(Math.min(1, y / scrollMax) * 100)).padStart(3, "0");
+    if (pct !== lastPct) { lastPct = pct; hudScroll.textContent = pct; }
   };
-  onScroll(); addEventListener("scroll", onScroll, { passive: true });
+  measure(); onScroll();
+  addEventListener("scroll", onScroll, { passive: true });
+  addEventListener("resize", measure, { passive: true });
+  addEventListener("load", measure);
 
   /* highlight the section under the viewport in the nav and the hud */
   const navLinks = [...document.querySelectorAll('.nav .links a[href^="#"]')];
@@ -1083,7 +1117,7 @@ AND    balance &gt;= $1;
 
     /* smooth scrolling */
     if (typeof Lenis !== "undefined" && !touch) {
-      lenis = new Lenis({ lerp: 0.16, wheelMultiplier: 1.05 });
+      lenis = new Lenis({ lerp: 0.12, wheelMultiplier: 1.05 });
       lenis.on("scroll", ScrollTrigger.update);
       gsap.ticker.add(t => lenis.raf(t * 1000));
       gsap.ticker.lagSmoothing(0);
@@ -1130,19 +1164,29 @@ AND    balance &gt;= $1;
     });
 
     /* diagrams: nodes appear, edges draw themselves, ports light, packets flow */
+    /* each packet lights the box it leaves, its edge while travelling, and the box it lands on */
+    const light = node => {
+      if (!node) return;
+      node.classList.add("lit");
+      clearTimeout(node._lit);
+      node._lit = setTimeout(() => node.classList.remove("lit"), 700);
+    };
     const startPackets = svg => {
       svg.querySelectorAll(".pkt").forEach((pkt, i) => {
         const path = svg.querySelector("#" + pkt.dataset.path);
+        const source = svg.querySelector(`.node[data-id="${pkt.dataset.from}"]`);
+        const target = svg.querySelector(`.node[data-id="${pkt.dataset.to}"]`);
         const len = path.getTotalLength();
-        const tw = gsap.to(pkt, {
+        const tl = gsap.timeline({ repeat: -1, repeatDelay: touch ? 1.2 : 0.5, delay: i * 0.45 });
+        tl.to(pkt, {
           motionPath: { path, align: path, alignOrigin: [0.5, 0.5] },
           duration: Math.max(1.4, len / (touch ? 40 : 55)), ease: "none",
-          repeat: -1, repeatDelay: touch ? 1.2 : 0.5, delay: i * 0.45,
-          onStart: () => { pkt.style.opacity = 1; }
+          onStart: () => { pkt.style.opacity = 1; path.classList.add("on"); light(source); },
+          onComplete: () => { path.classList.remove("on"); light(target); }
         });
         ScrollTrigger.create({ trigger: svg, start: "top bottom", end: "bottom top",
-          onEnter: () => tw.play(), onEnterBack: () => tw.play(),
-          onLeave: () => tw.pause(), onLeaveBack: () => tw.pause() });
+          onEnter: () => tl.play(), onEnterBack: () => tl.play(),
+          onLeave: () => tl.pause(), onLeaveBack: () => tl.pause() });
       });
     };
     document.querySelectorAll(".dg").forEach(svg => {
@@ -1169,7 +1213,10 @@ AND    balance &gt;= $1;
     }
   }
 
-  runBoot().then(() => { sky.reveal(); startHero(); streamHero(); });
+  /* start the hero once the boot is done and the webfonts are in (or 1.2 s
+     has passed), so the headline never swaps font mid-stream */
+  const fontsIn = Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 1200))]);
+  Promise.all([runBoot(), fontsIn]).then(() => { sky.reveal(); startHero(); streamHero(); });
 </script>
 </body>
 </html>
